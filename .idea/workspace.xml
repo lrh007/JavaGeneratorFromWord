@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed26a728-41a3-4b0a-a85c-1d0d1f6a43a1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WordToHtml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WordToHtml.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/WordToHtml.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/WordToHtml.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -125,42 +123,42 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="524" y="114" key="#xdebugger.evaluate/0.0.1536.824@0.0.1536.824" timestamp="1619688316251" />
-    <state width="487" height="438" key="DebuggerActiveHint" timestamp="1619688116702">
+    <state width="487" height="438" key="DebuggerActiveHint" timestamp="1619693241232">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="487" height="438" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1619688116702" />
-    <state width="1493" height="263" key="GridCell.Tab.0.bottom" timestamp="1619692946213">
+    <state width="487" height="438" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1619693241232" />
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1619693407304">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="263" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1619692946213" />
-    <state width="1493" height="263" key="GridCell.Tab.0.center" timestamp="1619692946213">
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1619693407304" />
+    <state width="1493" height="261" key="GridCell.Tab.0.center" timestamp="1619693407304">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="263" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1619692946213" />
-    <state width="1493" height="263" key="GridCell.Tab.0.left" timestamp="1619692946213">
+    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1619693407304" />
+    <state width="1493" height="261" key="GridCell.Tab.0.left" timestamp="1619693407304">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="263" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1619692946213" />
-    <state width="1493" height="263" key="GridCell.Tab.0.right" timestamp="1619692946213">
+    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1619693407304" />
+    <state width="1493" height="261" key="GridCell.Tab.0.right" timestamp="1619693407304">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="263" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1619692946213" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1619688595007">
+    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1619693407304" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1619693407305">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1619688595007" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1619688595007">
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1619693407305" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1619693407305">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1619688595007" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1619688595007">
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1619693407305" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1619693407305">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1619688595007" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1619688595007">
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1619693407305" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1619693407305">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1619688595007" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1619693407305" />
     <state x="270" y="54" key="SettingsEditor" timestamp="1619148065878">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -201,6 +199,11 @@
           <url>jar://$MAVEN_REPOSITORY$/fr/opensagres/xdocreport/org.apache.poi.xwpf.converter.core/1.0.5/org.apache.poi.xwpf.converter.core-1.0.5.jar!/org/apache/poi/xwpf/converter/core/styles/XWPFStylesDocument.class</url>
           <line>161</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/WordToHtml.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
