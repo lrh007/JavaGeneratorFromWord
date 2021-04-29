@@ -47,8 +47,9 @@ public class WordToHtml {
             if(p.parent().is("div")){
                 if(p.text().contains("@C")){
                     System.out.println(p.text());
-                    Element table = p.after();
-                    String text = table.text();
+                    //获取p标签后面第一个table，用来解析
+                    Element table = p.siblingElements().select("table").first();
+                    String text = table.html();
                     System.out.println(text);
 
                 }
