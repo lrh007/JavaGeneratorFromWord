@@ -1,13 +1,10 @@
 import comm.Const;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.hwpf.HWPFDocument;
-import org.apache.poi.hwpf.usermodel.*;
-import org.apache.poi.poifs.filesystem.POIFSFileSystem;
-import org.apache.poi.xwpf.usermodel.*;
+import entiry.ClassObj;
+import entiry.FieldObj;
+import entiry.FileObj;
+import util.WordToHtml;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.util.Iterator;
+import java.io.*;
 import java.util.List;
 
 /**
@@ -17,120 +14,110 @@ import java.util.List;
  */
 public class JavaClassGeneratorFromWord {
 
+    private String test;
+
     public static void main(String[] args) throws Exception {
 //        if(args == null || args.length == 0){
 //            System.out.println("请输入文件名称!");
 //            return;
 //        }
 //        String doc = args[0];
-        String doc = "C:\\Users\\MACHENIKE\\Desktop\\testjava\\1.docx";
+        String doc = "C:/Users/MACHENIKE/Desktop/testjava/";
 //        if(!doc.endsWith(Const.SUFFIX_DOC) && !doc.endsWith(Const.SUFFIX_DOCX)){
 //            System.out.println("请输入文件类型是 " + Const.SUFFIX_DOC+" 或 " + Const.SUFFIX_DOCX);
 //            return;
 //        }
-        readOnWord(doc);
-    }
 
 
-    public static void readOnWord(String filePath) throws Exception{
-        try{
-            FileInputStream in = new FileInputStream(filePath);//载入文档
-            // 处理docx格式 即office2007以后版本
-            if(filePath.toLowerCase().endsWith("docx")){
-                //word 2007 图片不会被读取， 表格中的数据会被放在字符串的最后
-                XWPFDocument xwpf = new XWPFDocument(in);//得到word文档的信息
-                Iterator<XWPFTable> it = xwpf.getTablesIterator();//得到word中的表格
-                // 设置需要读取的表格  set是设置需要读取的第几个表格，total是文件中表格的总数
-//                int set = 2, total = 4;
-//                int num = set;
-                // 过滤前面不需要的表格
-//                for (int i = 0; i < set-1; i++) {
-//                    it.hasNext();
-//                    it.next();
-//                }
-                FileOutputStream out = null;
-                int num = 1;
-                while(it.hasNext()){
-                    XWPFTable table = it.next();
-                    System.out.println("这是第" + num + "个表的数据");
-                    List<XWPFTableRow> rows = table.getRows();
-                    //读取每一行数据
-                    for (int i = 0; i < rows.size(); i++) {
-                        XWPFTableRow  row = rows.get(i);
+        List<FileObj> classes = WordToHtml.getClasses(doc);
 
-                        String className = "";
-                        String classDesc = "";
+        for (FileObj fileObj : classes) {
+            List<ClassObj> classObjs = fileObj.getClassObjs();
+            if (classObjs != null && classObjs.size() > 0) {
+                for (ClassObj classObj : classObjs) {
+                    String className = classObj.getClassName();
+                    String classDesc = classObj.getClassDesc();
+                    List<FieldObj> fields = classObj.getFields();
 
-                        //读取每一列数据
-                        List<XWPFTableCell> cells = row.getTableCells();
-                        for (int j = 0; j < cells.size(); j++) {
-                            XWPFTableCell cell = cells.get(j);
-                            //输出当前的单元格的数据
-                            System.out.print(cell.getText() + "\t");
-                            //解析类名称和描述
-                            if(cell.getText().contains(Const.CLASS_NAME)){
-
-                            }
-
-                        }
-                        System.out.println();
+                    String javaPath = doc +fileObj.getFileName();
+                    String javaName = doc +fileObj.getFileName() + "/" + className + Const.SUFFIX_JAVA;
+                    System.out.println("开始生成java文档："+javaName);
+                    File file = new File(javaPath);
+                    if(!file.exists()){
+                        file.mkdirs();
                     }
-                    num ++;
-                    // 过滤多余的表格
-//                    while (num < total) {
-//                        it.hasNext();
-//                        it.next();
-//                        num += 1;
-//                    }
-                }
-            }else{
-                // 处理doc格式 即office2003版本
-                POIFSFileSystem pfs = new POIFSFileSystem(in);
-                HWPFDocument hwpf = new HWPFDocument(pfs);
-                Range range = hwpf.getRange();//得到文档的读取范围
-                TableIterator it = new TableIterator(range);
-                // 迭代文档中的表格
-                // 如果有多个表格只读取需要的一个 set是设置需要读取的第几个表格，total是文件中表格的总数
-//                int set = 1, total = 4;
-//                int num = set;
-//                for (int i = 0; i < set-1; i++) {
-//                    it.hasNext();
-//                    it.next();
-//                }
-                int num = 1;
-                while (it.hasNext()) {
-                    Table tb = (Table) it.next();
-                    System.out.println("这是第" + num + "个表的数据");
-                    //迭代行，默认从0开始,可以依据需要设置i的值,改变起始行数，也可设置读取到那行，只需修改循环的判断条件即可
-                    for (int i = 0; i < tb.numRows(); i++) {
-                        TableRow tr = tb.getRow(i);
-                        //迭代列，默认从0开始
-                        for (int j = 0; j < tr.numCells(); j++) {
-                            TableCell td = tr.getCell(j);//取得单元格
-                            //取得单元格的内容
-                            for(int k = 0; k < td.numParagraphs(); k++){
-                                Paragraph para = td.getParagraph(k);
-                                String s = para.text();
-                                //去除后面的特殊符号
-                                if(null != s && !"".equals(s)){
-                                    s = s.substring(0, s.length()-1);
-                                }
-                                System.out.print(s + "\t");
-                            }
+                    BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(javaName)));
+                    //生成类注释
+                    classDesc = "/**\n" +
+                            "* "+classDesc+"\n" +
+                            "*/";
+                    out.write(classDesc);
+                    out.newLine();
+                    //生成类名称
+                    className = "public class " + className + " {";
+                    out.write(className);
+                    //生成属性字段
+                    if(fields != null && fields.size() > 0){
+                        for (FieldObj field : fields){
+                            out.newLine();
+                            out.newLine();
+                            String fieldName = field.getFieldName();
+                            String fieldDesc = field.getFieldDesc();
+                            //生成属性字段注释
+                            fieldDesc = "\t/** " + fieldDesc + " **/";
+                            out.write(fieldDesc);
+                            out.newLine();
+                            //生成属性字段
+                            fieldName = "\tprivate String " + fieldName + ";";
+                            out.write(fieldName);
                         }
-                        System.out.println();
+                        for (FieldObj field : fields){
+                            out.newLine();
+                            out.newLine();
+                            //生成getter 和 setter方法
+                            getterAndSetter(out,field.getFieldName());
+                        }
                     }
-                    num += 1;
-                    // 过滤多余的表格
-//                    while (num < total) {
-//                        it.hasNext();
-//                        it.next();
-//                        num += 1;
-//                    }
+                    out.newLine();
+                    out.write("}");
+                    out.close();
                 }
             }
-        }catch(Exception e){
-            e.printStackTrace();
         }
     }
+
+
+    public String getTest() {
+        return test;
+    }
+
+    public void setTest(String test) {
+        this.test = test;
+    }
+
+    /**
+     * 生成字段getter 和 setter方法
+     * @param out :  文件输出流
+     * @param fieldName :  字段名称
+     * @return void
+     * @author: liangruihao
+     * @date: 2021/4/30 18:18
+     */
+    private static void getterAndSetter(BufferedWriter out,String fieldName) throws IOException {
+        out.newLine();
+        String newName = fieldName.substring(0,1).toUpperCase() + fieldName.substring(1);
+        String getter = "\tpublic String get" + newName + "() {\n" +
+                    "        return "+ fieldName +";\n" +
+                    "    }";
+        out.write(getter);
+        out.newLine();
+        out.newLine();
+        String setter = "\tpublic void set" + newName + "(String " + fieldName + ") {\n" +
+                "        this." + fieldName + " = " + fieldName + ";\n" +
+                "    }";
+        out.write(setter);
+        out.newLine();
+    }
+
+
 }
