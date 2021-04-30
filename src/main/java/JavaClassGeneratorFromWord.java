@@ -14,7 +14,6 @@ import java.util.List;
  */
 public class JavaClassGeneratorFromWord {
 
-    private String test;
 
     public static void main(String[] args) throws Exception {
 //        if(args == null || args.length == 0){
@@ -86,14 +85,6 @@ public class JavaClassGeneratorFromWord {
         }
     }
 
-
-    public String getTest() {
-        return test;
-    }
-
-    public void setTest(String test) {
-        this.test = test;
-    }
 
     /**
      * 生成字段getter 和 setter方法
