@@ -1,4 +1,4 @@
-package entiry;
+package entity;
 
 /**
  * @Description: 字段类

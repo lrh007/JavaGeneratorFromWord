@@ -1,8 +1,8 @@
 import comm.Const;
-import entiry.ClassObj;
-import entiry.FieldObj;
-import entiry.FileObj;
-import util.WordToHtml;
+import entity.ClassObj;
+import entity.FieldObj;
+import entity.FileObj;
+import parse.impl.ParseHtml;
 
 import java.io.*;
 import java.util.List;
@@ -28,8 +28,7 @@ public class JavaClassGeneratorFromWord {
 //        }
 
 
-        List<FileObj> classes = WordToHtml.getClasses(doc);
-
+        List<FileObj> classes = new ParseHtml().parse(doc);
         for (FileObj fileObj : classes) {
             List<ClassObj> classObjs = fileObj.getClassObjs();
             if (classObjs != null && classObjs.size() > 0) {
