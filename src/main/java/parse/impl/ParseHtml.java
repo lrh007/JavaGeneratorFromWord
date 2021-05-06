@@ -10,6 +10,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import parse.Parser;
+import util.StringUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,6 +23,13 @@ import java.util.*;
  */
 public class ParseHtml implements Parser<FileObj> {
 
+    /**
+     * 解析html文件
+     * @param filePath :
+     * @return java.util.List<entity.FileObj>
+     * @author: liangruihao
+     * @date: 2021/5/6 14:07
+     */
     @Override
     public List<FileObj> parse(String filePath) throws Exception {
         List<FileObj> fileObjs = new ArrayList<>();
@@ -54,16 +62,37 @@ public class ParseHtml implements Parser<FileObj> {
             Element p = it.next();
             if(p.parent().is(Const.HTML_DIV)){
                 String pText = p.text().trim();
-                if(pText.contains(Const.CLASS)){
-                    //解析类名和类备注，格式：类描述&&类名
-                    int index = pText.indexOf(Const.CLASS);
+                if(pText.contains(Const.CLASS) || pText.contains(Const.CLASS_REQ)){
+                    String str = null;
+                    boolean reqClass = false;
+                    if(pText.contains(Const.CLASS)){
+                        str = Const.CLASS;
+                    }else if(pText.contains(Const.CLASS_REQ)){
+                        str = Const.CLASS_REQ;
+                        reqClass = true;
+                    }
+                    //解析类名和类备注，普通类格式：类描述@@@类名，请求类格式：类描述$$$类名<返回类>，尖括号不写默认是T
+                    int index = pText.indexOf(str);
                     String classDesc = pText.substring(0,index).trim();
-                    String className = pText.substring(index + Const.CLASS.length(),pText.length()).trim();
+                    String className = pText.substring(index + str.length(),pText.length()).trim();
+                    String responseClass = Const.DEFAULT_RESP_TYPE;
                     //如果类名称为空，将类描述当做类名称
                     if("".equals(className)){
                         className = classDesc;
+                    }else{
+                        //判断是否是请求类
+                        if(reqClass){
+                            responseClass = StringUtil.getClassInterface(className);
+                            if(responseClass == null){
+                                responseClass = Const.DEFAULT_RESP_TYPE;
+                            }
+                        }
+                        int idx = className.indexOf(Const.SPLIT_5);
+                        if(idx != -1){
+                            className = className.substring(0,idx);
+                        }
                     }
-                    ClassObj cls = new ClassObj(className,classDesc);
+                    ClassObj cls = new ClassObj(className,classDesc,reqClass,responseClass);
                     //获取p标签后面第一个table，用来解析
                     Element table = p.nextElementSiblings().select(Const.HTML_TABLE).first();
                     List<FieldObj> fields = parseTable(table);
@@ -85,7 +114,8 @@ public class ParseHtml implements Parser<FileObj> {
      * @date: 2021/4/30 16:55
      */
     private static List<FieldObj> parseTable(Element table){
-        int fieldIndex = 0; //字段名称在tr中的位置
+        int fieldIndex = -1; //字段名称在tr中的位置
+        int fieldTypeIndex = -1; //字段类型在tr中的位置
         Set<Integer> fieldDescSet = new LinkedHashSet<>(); //字段描述在tr中的位置，可以有多个
         boolean fieldExists = false; //字段名称是否存在
         List<FieldObj> fields = new ArrayList<>(); //所有的字段
@@ -101,6 +131,24 @@ public class ParseHtml implements Parser<FileObj> {
             if(fieldExists){
                 //字段名称
                 String fieldName = tr.child(fieldIndex).text().trim();
+                //字段类型
+                String fieldType = null;
+                if(fieldTypeIndex != -1){
+                    fieldType = tr.child(fieldTypeIndex).text().trim();
+                    //只有自定义的类型才使用，其他的全部使用默认类型String
+                    if(fieldType.contains(Const.SPLIT_3)){
+                        fieldType = fieldType.replaceAll(Const.SPLIT_3,"");
+                    }else{
+                        fieldType = Const.DEFAULT_TYPE;
+                    }
+                }else{
+                    fieldType = Const.DEFAULT_TYPE;
+                }
+                //解析字段类型，默认类型是String
+//                String fieldType = StringUtil.getFieldType(fieldName);
+//                if(fieldType == null){
+//                    fieldType = Const.DEFAULT_TYPE;
+//                }
                 //所有的字段描述，逗号分隔
                 StringBuilder values = new StringBuilder();
                 for (Integer idx : fieldDescSet) {
@@ -110,7 +158,7 @@ public class ParseHtml implements Parser<FileObj> {
                 if(fieldDesc.length() > 0){
                     fieldDesc = fieldDesc.substring(0,fieldDesc.length() - 1);
                 }
-                fields.add(new FieldObj(fieldName,fieldDesc));
+                fields.add(new FieldObj(fieldName,fieldDesc,fieldType));
             }
             Elements tds = tr.getElementsByTag(Const.HTML_TD);
             for (int i = 0; i < tds.size(); i++) {
@@ -119,6 +167,8 @@ public class ParseHtml implements Parser<FileObj> {
                 if(td.text().contains(Const.FIELD_NAME)){
                     fieldIndex = i;
                     fieldExists = true;
+                }else if(td.text().contains(Const.FIELD_TYPE)){
+                    fieldTypeIndex = i;
                 }else if(td.text().contains(Const.FIELD_DESC)){
                     fieldDescSet.add(i);
                 }

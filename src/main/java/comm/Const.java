@@ -7,9 +7,13 @@ package comm;
  */
 public class Const {
     /**
-     * 类
+     * 普通类
      */
     public static final String CLASS = "@@@";
+    /**
+     * 请求类
+     */
+    public static final String CLASS_REQ = "$$$";
     /**
      * 字段名称
      */
@@ -18,6 +22,10 @@ public class Const {
      * 字段描述
      */
     public static final String FIELD_DESC = "@FDESC";
+    /**
+     * 字段类型
+     */
+    public static final String FIELD_TYPE = "@FTYPE";
 
     public static final String HTML_DIV = "div";
     public static final String HTML_P = "p";
@@ -25,8 +33,21 @@ public class Const {
     public static final String HTML_TR = "tr";
     public static final String HTML_TD = "td";
 
+    /**
+     * 正则表达式
+     */
+    public static final String SPLIT_1 = "(\\()([0-9a-zA-Z\\.\\/\\=])*(\\))";
+    public static final String SPLIT_2 = "(";
+    public static final String SPLIT_3 = "@";
+    public static final String SPLIT_4 = "(\\<)([0-9a-zA-Z\\.\\/\\=])*(\\>)";
+    public static final String SPLIT_5 = "<";
 
 
+    /**
+     * 数据类型
+     */
+    public static final String DEFAULT_TYPE = "String";
+    public static final String DEFAULT_RESP_TYPE = "T";
 
 
     /**

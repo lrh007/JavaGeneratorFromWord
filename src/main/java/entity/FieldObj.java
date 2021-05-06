@@ -14,6 +14,10 @@ public class FieldObj {
      * 字段描述
      */
     private String fieldDesc;
+    /**
+     * 字段类型，默认String
+     */
+    private String fieldType;
 
     public FieldObj() {
     }
@@ -21,6 +25,12 @@ public class FieldObj {
     public FieldObj(String fieldName, String fieldDesc) {
         this.fieldName = fieldName;
         this.fieldDesc = fieldDesc;
+    }
+
+    public FieldObj(String fieldName, String fieldDesc, String fieldType) {
+        this.fieldName = fieldName;
+        this.fieldDesc = fieldDesc;
+        this.fieldType = fieldType;
     }
 
     public String getFieldName() {
@@ -37,5 +47,13 @@ public class FieldObj {
 
     public void setFieldDesc(String fieldDesc) {
         this.fieldDesc = fieldDesc;
+    }
+
+    public String getFieldType() {
+        return fieldType;
+    }
+
+    public void setFieldType(String fieldType) {
+        this.fieldType = fieldType;
     }
 }

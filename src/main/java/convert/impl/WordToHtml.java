@@ -21,7 +21,7 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.*;
 import java.util.*;
 
-/**
+/** 将word转换成html
  * @Description:
  * @Author: liangruihao
  * @Date: 2021/4/29 14:04
@@ -36,7 +36,13 @@ public class WordToHtml implements Convert {
         System.out.println(list);
     }
 
-
+    /**
+     * 文件转换
+     * @param filePath :
+     * @return java.util.List<java.lang.String>
+     * @author: liangruihao
+     * @date: 2021/5/6 14:07
+     */
     @Override
     public List<String> convert(String filePath) throws Exception {
         File file = new File(filePath);

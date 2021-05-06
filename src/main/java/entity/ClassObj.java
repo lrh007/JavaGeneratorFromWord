@@ -22,6 +22,15 @@ public class ClassObj {
      * 字段列表
      */
     private List<FieldObj> fields;
+    /**
+     * 是否是请求类，true是，false 不是 （请求类内容比较多）
+     */
+    private boolean reqClass;
+
+    /**
+     * 实现类
+     */
+    private String responseClass;
 
     public ClassObj() {
     }
@@ -29,6 +38,19 @@ public class ClassObj {
     public ClassObj(String className, String classDesc) {
         this.className = className;
         this.classDesc = classDesc;
+    }
+
+    public ClassObj(String className, String classDesc, boolean reqClass) {
+        this.className = className;
+        this.classDesc = classDesc;
+        this.reqClass = reqClass;
+    }
+
+    public ClassObj(String className, String classDesc, boolean reqClass, String responseClass) {
+        this.className = className;
+        this.classDesc = classDesc;
+        this.reqClass = reqClass;
+        this.responseClass = responseClass;
     }
 
     public String getClassName() {
@@ -51,7 +73,23 @@ public class ClassObj {
         return fields;
     }
 
+    public boolean isReqClass() {
+        return reqClass;
+    }
+
+    public void setReqClass(boolean reqClass) {
+        this.reqClass = reqClass;
+    }
+
     public void setFields(List<FieldObj> fields) {
         this.fields = fields;
+    }
+
+    public String getResponseClass() {
+        return responseClass;
+    }
+
+    public void setResponseClass(String responseClass) {
+        this.responseClass = responseClass;
     }
 }
