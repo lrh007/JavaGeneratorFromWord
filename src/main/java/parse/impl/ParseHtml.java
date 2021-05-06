@@ -144,11 +144,6 @@ public class ParseHtml implements Parser<FileObj> {
                 }else{
                     fieldType = Const.DEFAULT_TYPE;
                 }
-                //解析字段类型，默认类型是String
-//                String fieldType = StringUtil.getFieldType(fieldName);
-//                if(fieldType == null){
-//                    fieldType = Const.DEFAULT_TYPE;
-//                }
                 //所有的字段描述，逗号分隔
                 StringBuilder values = new StringBuilder();
                 for (Integer idx : fieldDescSet) {
