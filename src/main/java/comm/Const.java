@@ -15,6 +15,15 @@ public class Const {
      */
     public static final String CLASS_REQ = "$$$";
     /**
+     *  统一模式下的普通类
+     */
+    public static final String CLASS_SUPPER = "@@@@";
+    /**
+     * 统一模式下的请求类
+     */
+    public static final String CLASS_REQ_SUPPER = "$$$$";
+
+    /**
      * 字段名称
      */
     public static final String FIELD_NAME = "@FIELD";
@@ -26,6 +35,11 @@ public class Const {
      * 字段类型
      */
     public static final String FIELD_TYPE = "@FTYPE";
+    /**
+     * 超级模式标签，在文件内容统一的情况下使用
+     */
+    public static final String SUPPER_MODE = "@SUPPER";
+
 
     public static final String HTML_DIV = "div";
     public static final String HTML_P = "p";
@@ -41,6 +55,12 @@ public class Const {
     public static final String SPLIT_3 = "@";
     public static final String SPLIT_4 = "(\\<)([0-9a-zA-Z\\.\\/\\=])*(\\>)";
     public static final String SPLIT_5 = "<";
+    public static final String SPLIT_6 = "&";
+    public static final String SPLIT_7 = "=";
+    public static final String SPLIT_8 = ",";
+    public static final String SPLIT_9 = "^[a-z0-9A-Z]+$";
+
+
 
 
     /**
