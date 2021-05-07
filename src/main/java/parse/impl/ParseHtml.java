@@ -54,7 +54,7 @@ public class ParseHtml implements Parser<FileObj> {
      * @date: 2021/4/30 16:56
      */
     private static List<ClassObj> parseHtml(String filePath, String fileName) throws IOException {
-        org.jsoup.nodes.Document document = Jsoup.parse(new File(filePath + fileName + Const.SUFFIX_HTML), "UTF-8");
+        org.jsoup.nodes.Document document = Jsoup.parse(new File(filePath + fileName + Const.SUFFIX_HTML), Const.CHARSET_UTF_8);
         Elements div = document.getElementsByTag(Const.HTML_P);
         Iterator<Element> it = div.iterator();
         List<ClassObj> classes = new ArrayList<>(); //存放所有的对象
@@ -159,12 +159,12 @@ public class ParseHtml implements Parser<FileObj> {
             for (int i = 0; i < tds.size(); i++) {
                 Element td = tds.get(i);
                 //判断字段名的位置，和字段描述的位置
-                if(td.text().contains(Const.FIELD_NAME)){
+                if(td.text().toUpperCase().contains(Const.FIELD_NAME)){
                     fieldIndex = i;
                     fieldExists = true;
-                }else if(td.text().contains(Const.FIELD_TYPE)){
+                }else if(td.text().toUpperCase().contains(Const.FIELD_TYPE)){
                     fieldTypeIndex = i;
-                }else if(td.text().contains(Const.FIELD_DESC)){
+                }else if(td.text().toUpperCase().contains(Const.FIELD_DESC)){
                     fieldDescSet.add(i);
                 }
             }

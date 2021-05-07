@@ -7,7 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed26a728-41a3-4b0a-a85c-1d0d1f6a43a1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/MainFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/util/FileUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/JavaClassGeneratorFromWord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JavaClassGeneratorFromWord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/comm/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comm/Const.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/parse/impl/ParseHtml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/parse/impl/ParseHtml.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,6 +34,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/JavaClassGeneratorFromWord.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/parse/impl/ParseHtml.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/MainFrame.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/convert/impl/WordToHtml.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MavenImportPreferences">
@@ -80,9 +86,16 @@
       <recent name="E:\IdeaProject\JavaGeneratorFromWord\doc" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.JavaClassGeneratorFromWord">
+  <component name="RunManager" selected="Application.MainFrame">
     <configuration name="JavaClassGeneratorFromWord" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="JavaClassGeneratorFromWord" />
+      <module name="JavaGeneratorFromWord" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MainFrame" />
       <module name="JavaGeneratorFromWord" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -116,6 +129,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MainFrame" />
         <item itemvalue="Application.JavaClassGeneratorFromWord" />
         <item itemvalue="Application.StringUtil" />
         <item itemvalue="Application.WordToHtml" />
@@ -141,10 +155,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser" timestamp="1620292728726">
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser" timestamp="1620367279656">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1620292728726" />
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1620367279656" />
     <state x="520" y="195" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1620296237595">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -173,38 +187,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="192" height="199" key="Git.Branch.Popup/0.0.1536.824@0.0.1536.824" timestamp="1620271079891" />
-    <state width="1493" height="204" key="GridCell.Tab.0.bottom" timestamp="1620296048013">
+    <state width="1493" height="246" key="GridCell.Tab.0.bottom" timestamp="1620371479143">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="204" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1620296048013" />
-    <state width="1493" height="204" key="GridCell.Tab.0.center" timestamp="1620296048013">
+    <state width="1493" height="246" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1620371479143" />
+    <state width="1493" height="246" key="GridCell.Tab.0.center" timestamp="1620371479143">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="204" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1620296048013" />
-    <state width="1493" height="204" key="GridCell.Tab.0.left" timestamp="1620296048013">
+    <state width="1493" height="246" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1620371479143" />
+    <state width="1493" height="246" key="GridCell.Tab.0.left" timestamp="1620371479143">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="204" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1620296048013" />
-    <state width="1493" height="204" key="GridCell.Tab.0.right" timestamp="1620296048013">
+    <state width="1493" height="246" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1620371479143" />
+    <state width="1493" height="246" key="GridCell.Tab.0.right" timestamp="1620371479143">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="204" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1620296048013" />
-    <state width="1493" height="187" key="GridCell.Tab.1.bottom" timestamp="1620287644033">
+    <state width="1493" height="246" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1620371479143" />
+    <state width="1493" height="187" key="GridCell.Tab.1.bottom" timestamp="1620356740418">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="187" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1620287644033" />
-    <state width="1493" height="187" key="GridCell.Tab.1.center" timestamp="1620287644032">
+    <state width="1493" height="187" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1620356740418" />
+    <state width="1493" height="187" key="GridCell.Tab.1.center" timestamp="1620356740417">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="187" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1620287644032" />
-    <state width="1493" height="187" key="GridCell.Tab.1.left" timestamp="1620287644032">
+    <state width="1493" height="187" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1620356740417" />
+    <state width="1493" height="187" key="GridCell.Tab.1.left" timestamp="1620356740417">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="187" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1620287644032" />
-    <state width="1493" height="187" key="GridCell.Tab.1.right" timestamp="1620287644032">
+    <state width="1493" height="187" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1620356740417" />
+    <state width="1493" height="187" key="GridCell.Tab.1.right" timestamp="1620356740417">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="187" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1620287644032" />
+    <state width="1493" height="187" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1620356740417" />
     <state x="270" y="0" key="SettingsEditor" timestamp="1620296278541">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -217,9 +231,20 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="377" y="112" width="782" height="600" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1619684654531" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1620292783744">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1620366750689">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1620292783744" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1620366750689" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/util/FileUtil.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

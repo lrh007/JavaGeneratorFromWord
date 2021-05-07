@@ -3,6 +3,7 @@ import entity.ClassObj;
 import entity.FieldObj;
 import entity.FileObj;
 import parse.impl.ParseHtml;
+import util.FileUtil;
 
 import java.io.*;
 import java.util.List;
@@ -22,13 +23,17 @@ public class JavaClassGeneratorFromWord {
 //        }
 //        String doc = args[0];
         String doc = "C:/Users/MACHENIKE/Desktop/testjava/";
-        doc = "./";
+//        doc = "./";
 //        if(!doc.endsWith(Const.SUFFIX_DOC) && !doc.endsWith(Const.SUFFIX_DOCX)){
 //            System.out.println("请输入文件类型是 " + Const.SUFFIX_DOC+" 或 " + Const.SUFFIX_DOCX);
 //            return;
 //        }
 
-
+        System.out.println("正在生成文件，请稍等...");
+        //删除上次生成的文件
+        FileUtil.deleteDirecs(doc);
+        int count = 0;//统计文件个数
+        StringBuilder builder = new StringBuilder();//用来生成日志以及命令使用方法
         List<FileObj> classes = new ParseHtml().parse(doc);
         for (FileObj fileObj : classes) {
             List<ClassObj> classObjs = fileObj.getClassObjs();
@@ -38,14 +43,21 @@ public class JavaClassGeneratorFromWord {
                     String classDesc = classObj.getClassDesc();
                     List<FieldObj> fields = classObj.getFields();
 
-                    String javaPath = doc +fileObj.getFileName();
-                    String javaName = doc +fileObj.getFileName() + "/" + className + Const.SUFFIX_JAVA;
-                    System.out.println("开始生成java文档："+javaName);
+                    String javaPath = doc +fileObj.getFileName() +"/";
+                    //将请求类生成到request文件夹下面
+                    String reqPath = "";
+                    if(classObj.isReqClass()){
+                        reqPath = Const.REQUEST_CLASS_PATH + "/";
+                        javaPath += reqPath;
+                    }
+                    String javaName = doc +fileObj.getFileName() + "/"+ reqPath + className + Const.SUFFIX_JAVA;
+                    System.out.println("生成java文件："+javaName+"   "+classDesc);
+                    builder.append(javaName+"   "+classDesc+"\n");
                     File file = new File(javaPath);
                     if(!file.exists()){
                         file.mkdirs();
                     }
-                    BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(javaName)));
+                    BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(javaName),Const.CHARSET_UTF_8));
                     //生成类注释
                     classDesc = "/**\n" +
                             "* "+classDesc+"\n" +
@@ -94,13 +106,24 @@ public class JavaClassGeneratorFromWord {
                             //生成getter 和 setter方法
                             getterAndSetter(out,field.getFieldName(),field.getFieldType());
                         }
+                    }else{
+                        //没有属性字段的情况下也要生成override方法
+                        //判断是否是请求类
+                        if(classObj.isReqClass()){
+                            genReqOverrideMethod(out,fields,classObj.getResponseClass());
+                        }
                     }
                     out.newLine();
                     out.write("}");
                     out.close();
+                    count ++;
                 }
             }
         }
+        builder.append("文件生成完成，共生成 " + count + "个文件");
+        System.out.println("文件生成完成，共生成 " + count + "个文件");
+        //生成执行日志
+        generatorHelp(builder.toString(),doc);
     }
 
 
@@ -195,8 +218,10 @@ public class JavaClassGeneratorFromWord {
                 "    @JSONField(serialize = false)\n" +
                 "    public Map<String, Object> getParams() {\n" +
                 "        Map<String,Object> map = new HashMap<>();\n");
-        for (FieldObj f : fields){
-            builder.append("\t\tmap.put(\"" + f.getFieldName() + "\"," + f.getFieldName() + ");\n");
+        if(fields != null && fields.size() >0){
+            for (FieldObj f : fields){
+                builder.append("\t\tmap.put(\"" + f.getFieldName() + "\"," + f.getFieldName() + ");\n");
+            }
         }
         builder.append("\t\treturn map;\n" +
                 "    }");
@@ -205,4 +230,15 @@ public class JavaClassGeneratorFromWord {
         out.newLine();
     }
 
+    private static void generatorHelp(String str,String path){
+        try{
+            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path + "执行结果.log"),Const.CHARSET_UTF_8));
+            out.newLine();
+            out.write(str);
+            out.flush();
+            out.close();
+        }catch (Exception e){
+
+        }
+    }
 }

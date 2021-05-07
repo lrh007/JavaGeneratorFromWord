@@ -61,4 +61,13 @@ public class Const {
     public static final String SUFFIX_HTML = ".html";
     public static final String SUFFIX_JAVA = ".java";
 
+    /**
+     * 请求类路径
+     */
+    public static final String REQUEST_CLASS_PATH = "request";
+    /**
+     * 字符编码utf-8
+     */
+    public static final String CHARSET_UTF_8 = "UTF-8";
+
 }
