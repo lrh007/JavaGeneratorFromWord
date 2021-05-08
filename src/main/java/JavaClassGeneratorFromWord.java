@@ -226,7 +226,8 @@ public class JavaClassGeneratorFromWord {
             out.flush();
             out.close();
         }catch (Exception e){
-
+            e.printStackTrace();
+            System.out.println("生成执行结果日志异常："+e.getMessage());
         }
     }
 }
