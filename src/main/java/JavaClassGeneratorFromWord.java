@@ -17,21 +17,9 @@ public class JavaClassGeneratorFromWord {
 
 
     public static void main(String[] args) throws Exception {
-//        if(args == null || args.length == 0){
-//            System.out.println("请输入文件名称!");
-//            return;
-//        }
-//        String doc = args[0];
 //        String doc = "C:/Users/MACHENIKE/Desktop/testjava/";
         String doc = "./";
-//        if(!doc.endsWith(Const.SUFFIX_DOC) && !doc.endsWith(Const.SUFFIX_DOCX)){
-//            System.out.println("请输入文件类型是 " + Const.SUFFIX_DOC+" 或 " + Const.SUFFIX_DOCX);
-//            return;
-//        }
-
         System.out.println("正在生成文件，请稍等...");
-        //删除上次生成的文件
-        FileUtil.deleteDirecs(doc);
         int count = 0;//统计文件个数
         StringBuilder builder = new StringBuilder();//用来生成日志以及命令使用方法
         List<FileObj> classes = new ParseHtml().parse(doc);
