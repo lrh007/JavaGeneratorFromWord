@@ -14,14 +14,6 @@ public class Const {
      * 请求类
      */
     public static final String CLASS_REQ = "$$$";
-    /**
-     *  统一模式下的普通类
-     */
-    public static final String CLASS_SUPPER = "@@@@";
-    /**
-     * 统一模式下的请求类
-     */
-    public static final String CLASS_REQ_SUPPER = "$$$$";
 
     /**
      * 字段名称

@@ -22,8 +22,8 @@ public class JavaClassGeneratorFromWord {
 //            return;
 //        }
 //        String doc = args[0];
-        String doc = "C:/Users/MACHENIKE/Desktop/testjava/";
-//        doc = "./";
+//        String doc = "C:/Users/MACHENIKE/Desktop/testjava/";
+        String doc = "./";
 //        if(!doc.endsWith(Const.SUFFIX_DOC) && !doc.endsWith(Const.SUFFIX_DOCX)){
 //            System.out.println("请输入文件类型是 " + Const.SUFFIX_DOC+" 或 " + Const.SUFFIX_DOCX);
 //            return;

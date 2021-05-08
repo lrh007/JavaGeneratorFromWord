@@ -77,19 +77,10 @@ public class ParseHtml implements Parser<FileObj> {
             Element p = it.next();
             if(p.parent().is(Const.HTML_DIV)){
                 String pText = p.text().trim();
-                if(pText.contains(Const.CLASS)
-                        || pText.contains(Const.CLASS_REQ)
-                        || pText.contains(Const.CLASS_REQ_SUPPER)
-                        || pText.contains(Const.CLASS_SUPPER)){
+                if(pText.contains(Const.CLASS) || pText.contains(Const.CLASS_REQ)){
                     String str = null;
                     boolean reqClass = false;
-                    //这里要先判断多的@或者$否则，走不到@@@@就会被@@@拦截
-                    if(pText.contains(Const.CLASS_SUPPER)){
-                        str = Const.CLASS_SUPPER;
-                    }else if(pText.contains(Const.CLASS_REQ_SUPPER)){
-                        str = Const.CLASS_REQ_SUPPER;
-                        reqClass = true;
-                    }else if(pText.contains(Const.CLASS)){
+                    if(pText.contains(Const.CLASS)){
                         str = Const.CLASS;
                     }else if(pText.contains(Const.CLASS_REQ)) {
                         str = Const.CLASS_REQ;
@@ -119,12 +110,7 @@ public class ParseHtml implements Parser<FileObj> {
                     ClassObj cls = new ClassObj(className,classDesc,reqClass,responseClass);
                     //获取p标签后面第一个table，用来解析
                     Element table = p.nextElementSiblings().select(Const.HTML_TABLE).first();
-                    //判断当前table是否是特殊的
-                    boolean specialFlag = false;
-                    if(pText.contains(Const.CLASS_REQ_SUPPER) || pText.contains(Const.CLASS_SUPPER)){
-                        specialFlag = true;
-                    }
-                    List<FieldObj> fields = parseTable(table,supperText,supperFlag,specialFlag);
+                    List<FieldObj> fields = parseTable(table,supperText,supperFlag);
                     if(fields != null && fields.size() > 0){
                         cls.setFields(fields);
                     }
@@ -140,12 +126,11 @@ public class ParseHtml implements Parser<FileObj> {
      * @param table : table元素
      * @param supperText : 统一模式标签内容
      * @param supperFlag : 统一模式标识
-     * @param specialFlag :  特殊table标识
      * @return java.util.List<entity.FieldObj>
      * @author: liangruihao
      * @date: 2021/5/7 18:38
      */
-    private static List<FieldObj> parseTable(Element table,String supperText,boolean supperFlag,boolean specialFlag){
+    private static List<FieldObj> parseTable(Element table,String supperText,boolean supperFlag){
         int fieldIndex = -1; //字段名称在tr中的位置
         int fieldTypeIndex = -1; //字段类型在tr中的位置
         Set<Integer> fieldDescSet = new LinkedHashSet<>(); //字段描述在tr中的位置，可以有多个
@@ -161,8 +146,24 @@ public class ParseHtml implements Parser<FileObj> {
             if(!tr.hasText()){
                 continue;
             }
-            //存在统一解析模式,且每个table只能判断一次,且当前table不是特殊的
-            if(supperFlag && !supperChangeFlag && !specialFlag){
+
+            //先使用普通模式判断是否存在标签
+            Elements tds = tr.getElementsByTag(Const.HTML_TD);
+            for (int i = 0; i < tds.size(); i++) {
+                Element td = tds.get(i);
+                //判断字段名的位置，和字段描述的位置
+                if(td.text().toUpperCase().contains(Const.FIELD_NAME)){
+                    fieldIndex = i;
+                    fieldExists = true;
+                }else if(td.text().toUpperCase().contains(Const.FIELD_TYPE)){
+                    fieldTypeIndex = i;
+                }else if(td.text().toUpperCase().contains(Const.FIELD_DESC)){
+                    fieldDescSet.add(i);
+                }
+            }
+
+            //存在统一解析模式,且每个table只能判断一次,统一模式和特殊table存在的情况下优先使用普通标签
+            if(supperFlag && !supperChangeFlag && !fieldExists){
                 supperText = supperText.replaceAll(Const.SUPPER_MODE,"");
                 String[] split = supperText.split(Const.SPLIT_6);
                 for (String s : split){
@@ -181,8 +182,6 @@ public class ParseHtml implements Parser<FileObj> {
 
                 }
             }
-
-
             //找到了对应的字段名位置
             if(fieldExists){
                 //字段名称
@@ -214,20 +213,6 @@ public class ParseHtml implements Parser<FileObj> {
                     fieldDesc = fieldDesc.substring(0,fieldDesc.length() - 1);
                 }
                 fields.add(new FieldObj(fieldName,fieldDesc,fieldType));
-            }else{
-                Elements tds = tr.getElementsByTag(Const.HTML_TD);
-                for (int i = 0; i < tds.size(); i++) {
-                    Element td = tds.get(i);
-                    //判断字段名的位置，和字段描述的位置
-                    if(td.text().toUpperCase().contains(Const.FIELD_NAME)){
-                        fieldIndex = i;
-                        fieldExists = true;
-                    }else if(td.text().toUpperCase().contains(Const.FIELD_TYPE)){
-                        fieldTypeIndex = i;
-                    }else if(td.text().toUpperCase().contains(Const.FIELD_DESC)){
-                        fieldDescSet.add(i);
-                    }
-                }
             }
         }
         return fields;
