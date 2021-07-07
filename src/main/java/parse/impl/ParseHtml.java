@@ -185,6 +185,9 @@ public class ParseHtml implements Parser<FileObj> {
             //找到了对应的字段名位置
             if(fieldExists){
                 //字段名称
+                if(tr.childNodes().size() < fieldTypeIndex){
+                    continue;
+                }
                 String fieldName = tr.child(fieldIndex).text().trim();
                 //由于存在统一模式，相关注解都会没有，此时table第一行可能是无效数据，所以在此对字段名称判断，只能是数字字母组合
                 if(!fieldName.matches(Const.SPLIT_9)){

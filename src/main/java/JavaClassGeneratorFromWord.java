@@ -17,8 +17,8 @@ public class JavaClassGeneratorFromWord {
 
 
     public static void main(String[] args) throws Exception {
-//        String doc = "C:/Users/MACHENIKE/Desktop/testjava/";
-        String doc = "./";
+        String doc = "C:/Users/MACHENIKE/Desktop/juzi/HX-210705-14 长安银行/新建文件夹/";
+//        String doc = "./";
         System.out.println("正在生成文件，请稍等...");
         int count = 0;//统计文件个数
         StringBuilder builder = new StringBuilder();//用来生成日志以及命令使用方法
