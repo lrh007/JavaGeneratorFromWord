@@ -33,7 +33,7 @@ public class ParseHtml implements Parser<FileObj> {
     @Override
     public List<FileObj> parse(String filePath) throws Exception {
         List<FileObj> fileObjs = new ArrayList<>();
-        List<String> fileNames = DyFactory.getInstance(WordToHtml.class).convert(filePath);
+        List<String> fileNames = checkFileType(filePath);
         //如果文件夹下面有多个word文件的话，生成的java类根据不同的文件名生成对应的文件夹，并将java类放进去
         for (String name : fileNames){
             List<ClassObj> classObjs = parseHtml(filePath,name);
@@ -42,6 +42,27 @@ public class ParseHtml implements Parser<FileObj> {
         return fileObjs;
     }
 
+    /**
+     * 检查文件类型
+     * @param filePath :文件路径
+     * @return java.util.List<java.lang.String>
+     * @author: liangruihao
+     * @date: 2021/7/28 9:41
+     */
+    public List<String> checkFileType(String filePath) throws Exception{
+        List<String> fileNames = new ArrayList<>();
+        File file = new File(filePath);
+        //存在html文件的情况下，优先加载html文件
+        for (String fileName : file.list()){
+            if(fileName.toLowerCase().endsWith("html") || fileName.toLowerCase().endsWith("htm")){
+                fileNames.add(fileName.toLowerCase().replaceAll("\\.(html|htm)",""));
+            }
+        }
+        if(fileNames.size() == 0){
+            fileNames = DyFactory.getInstance(WordToHtml.class).convert(filePath);
+        }
+        return fileNames;
+    }
 
 
 
