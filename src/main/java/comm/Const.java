@@ -33,6 +33,7 @@ public class Const {
     public static final String SUPPER_MODE = "@SUPPER";
 
 
+    public static final String HTML_BODY = "body";
     public static final String HTML_DIV = "div";
     public static final String HTML_P = "p";
     public static final String HTML_TABLE = "table";

@@ -52,13 +52,19 @@ public class ParseHtml implements Parser<FileObj> {
     public List<String> checkFileType(String filePath) throws Exception{
         List<String> fileNames = new ArrayList<>();
         File file = new File(filePath);
+        boolean docFlg = false;
         //存在html文件的情况下，优先加载html文件
         for (String fileName : file.list()){
             if(fileName.toLowerCase().endsWith("html") || fileName.toLowerCase().endsWith("htm")){
                 fileNames.add(fileName.toLowerCase().replaceAll("\\.(html|htm)",""));
             }
+            //判断是否存在word文件，存在优先加载
+            if(fileName.toLowerCase().endsWith("doc") || fileName.toLowerCase().endsWith("docx")){
+                docFlg = true;
+                break;
+            }
         }
-        if(fileNames.size() == 0){
+        if(fileNames.size() == 0 && docFlg){
             fileNames = DyFactory.getInstance(WordToHtml.class).convert(filePath);
         }
         return fileNames;
@@ -96,7 +102,7 @@ public class ParseHtml implements Parser<FileObj> {
 
         while (it.hasNext()){
             Element p = it.next();
-            if(p.parent().is(Const.HTML_DIV)){
+            if(p.parent().is(Const.HTML_DIV) || p.parent().is(Const.HTML_BODY)){
                 String pText = p.text().trim();
                 if(pText.contains(Const.CLASS) || pText.contains(Const.CLASS_REQ)){
                     String str = null;

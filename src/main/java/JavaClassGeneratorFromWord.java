@@ -17,7 +17,7 @@ public class JavaClassGeneratorFromWord {
 
 
     public static void main(String[] args) throws Exception {
-//        String doc = "C:/Users/MACHENIKE/Desktop/testjava/";
+//        String doc = "C:/Users/MACHENIKE/Desktop/juzi/HX-210802-06 全互融通现金贷对接/生成代码/";
         String doc = "./";
         System.out.println("正在生成文件，请稍等...");
         int count = 0;//统计文件个数
