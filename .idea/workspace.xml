@@ -7,14 +7,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed26a728-41a3-4b0a-a85c-1d0d1f6a43a1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/JavaGeneratorFromWord_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/JavaGeneratorFromWord_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/xml/XmlClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/config.dtd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/config.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/JavaClassGeneratorFromWord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JavaClassGeneratorFromWord.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/comm/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comm/Const.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/ClassObj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/word/ClassObj.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/FieldObj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/word/FieldObj.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/FileObj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/word/FileObj.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/parse/impl/ParseHtml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/parse/impl/ParseHtml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/JavaClassGeneratorFromWord.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/JavaClassGeneratorFromWord.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/comm/Const.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/comm/Const.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/parse/impl/ParseHtml.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/parse/impl/ParseHtml.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,17 +91,18 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JAVA" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15136719" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\IdeaProject\JavaGeneratorFromWord\src\main\resources" />
       <recent name="E:\IdeaProject\JavaGeneratorFromWord\doc" />
     </key>
   </component>
@@ -202,10 +205,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="570" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1629946929643" />
-    <state width="194" height="201" key="Git.Branch.Popup" timestamp="1627438248560">
+    <state width="202" height="209" key="Git.Branch.Popup" timestamp="1629957214814">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="194" height="201" key="Git.Branch.Popup/0.0.1536.824@0.0.1536.824" timestamp="1627438248560" />
+    <state width="202" height="209" key="Git.Branch.Popup/0.0.1536.824@0.0.1536.824" timestamp="1629957214814" />
     <state width="1493" height="232" key="GridCell.Tab.0.bottom" timestamp="1629946759042">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -238,10 +241,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="232" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1629946759045" />
-    <state x="270" y="0" key="SettingsEditor" timestamp="1629946935767">
+    <state x="270" y="0" key="SettingsEditor" timestamp="1629957334597">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="270" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1629946935767" />
+    <state x="270" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1629957334597" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1629957217513">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1629957217513" />
     <state width="775" height="419" key="XDebugger.FullValuePopup" timestamp="1629944442335">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

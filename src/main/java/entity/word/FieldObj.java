@@ -1,4 +1,4 @@
-package entity;
+package entity.word;
 
 /**
  * @Description: 字段类

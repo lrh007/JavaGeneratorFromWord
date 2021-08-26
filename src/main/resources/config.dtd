@@ -1,0 +1,55 @@
+<!--class 根标签 下面有 field 和custom 两个子标签-->
+<!ELEMENT class (directory-path,field,custom)>
+<!--文件所在目录-->
+<!ELEMENT directory-path (#PCDATA)>
+<!--子标签 field 标签内容定义成空的-->
+<!ELEMENT field EMPTY>
+<!--子标签 field 属性设置-->
+<!ATTLIST field setter(true|false) "true" (#IMPLIED)>
+<!ATTLIST field getter(true|false) "true" (#IMPLIED)>
+<!ATTLIST field scope(public|private|protected|default) "public" (#REQUIRED)>
+<!ATTLIST field javaType (#REQUIRED)>
+<!ATTLIST field showDescription(true|false) "true" (#IMPLIED)>
+<!--子标签custom 下面有 custom-fields 和 custom-methods 两个子标签-->
+<!ELEMENT custom (custom-fields,custom-methods)>
+<!--子标签 custom-fields 下面有 custom-field 一个子标签-->
+<!ELEMENT custom-fields (custom-field)>
+<!--子标签 custom-field 下面有 field-name,field-value,field-description 三个子标签-->
+<!ELEMENT custom-field (field-name,field-value,field-description)>
+<!--子标签 custom-field 属性设置-->
+<!ATTLIST custom-field setter(true|false) "true" (#IMPLIED)>
+<!ATTLIST custom-field getter(true|false) "true" (#IMPLIED)>
+<!ATTLIST custom-field scope(public|private|protected|default) "public" (#REQUIRED)>
+<!ATTLIST custom-field javaType (#REQUIRED)>
+<!ATTLIST custom-field static(true|false) "false" (#IMPLIED)>
+<!ATTLIST custom-field final(true|false) "false" (#IMPLIED)>
+<!ATTLIST custom-field allClass(true|false) "true" (#IMPLIED)>
+<!--子标签 custom-field 下面的三个子标签都设置成只能填写字符串-->
+<!ELEMENT field-name (#PCDATA)>
+<!ELEMENT field-value (#PCDATA)>
+<!ELEMENT field-description (#PCDATA)>
+
+<!--子标签 custom-methods 下面有 custom-method 一个子标签-->
+<!ELEMENT custom-methods (custom-method)>
+<!--子标签 custom-method 下面有 method-name,method-annotion,method,method-return,method-params 四个子标签-->
+<!ELEMENT custom-method (method-name,method-annotation,method-return,method-params)>
+<!--设置子标签下面标签只能填写字符串-->
+<!ELEMENT method-name (#PCDATA)>
+<!ELEMENT method-annotation (#PCDATA)>
+<!ELEMENT method-return (#PCDATA)>
+<!--子标签 method-params 下面有 method-param 一个子标签-->
+<!ELEMENT method-params (method-param)>
+<!--设置method-param 子标签只能填写字符串及属性设置-->
+<!ELEMENT method-param (#PCDATA)>
+<!ATTLIST method-param javaType (#REQUIRED)>
+<!ATTLIST method-param final(true|false) "true" (#IMPLIED)>
+
+<!--子标签custom-method 的属性设置-->
+<!ATTLIST custom-method scope(public|private|protected|default) "public" (#REQUIRED)>
+<!ATTLIST custom-method javaType (#REQUIRED)>
+<!ATTLIST custom-method static(true|false) "false" (#IMPLIED)>
+<!ATTLIST custom-method final(true|false) "false" (#IMPLIED)>
+<!ATTLIST custom-method allClass(true|false) "true" (#IMPLIED)>
+
+
+

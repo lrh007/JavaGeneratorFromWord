@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE class SYSTEM "config.dtd">
+<class>
+	<directory-path>C:/users/</directory-path>
+	<field setter="true"
+			getter="true"
+			scope="public"
+			javaType="Integer"
+			showDescription="true">
+	</field>
+
+	<custom>
+		<custom-fields>
+			<custom-field setter="true"
+					getter="true"
+					scope="public"
+					javaType="String"
+					static="true"
+					final="true"
+					allClass="false"
+					>
+				<!--allClass 默认true 表示 所有类中都会生成这个自定义属性，false 表示只在有@customer注解的类中才会生成-->
+				<field-name>LOCAL_PATH</field-name>
+				<field-value>111</field-value>
+				<field-description>本地路径</field-description>
+			</custom-field>
+			<custom-field setter="true"
+					getter="true"
+					scope="public"
+					javaType="String"
+					static="true"
+					final="true"
+					>
+				<field-name>CLIENT_PATH</field-name>
+				<field-value>111</field-value>
+				<field-description>远程路径</field-description>
+			</custom-field>
+		</custom-fields>
+		<custom-methods>
+			<custom-method scope="public"
+					javaType="void"
+					static="true"
+					final="true"
+					allClass="true"
+					>
+<!--				#默认true 表示 所有类中都会生成这个自定义属性，false 表示只在有@customer注解的类中才会生成-->
+				<method-name>getOrder</method-name>
+				<method-annotation>@Override</method-annotation> #方法上面的注解
+				<method-return>LoanApplyResponse.class</method-return> #方法的方绘制
+				<method-params>
+					<method-param javaType="int" final="true">count</method-param>
+					<method-param javaType="String" final="true">name</method-param>
+				</method-params>
+			</custom-method>
+		</custom-methods>
+	</custom>
+
+</class>

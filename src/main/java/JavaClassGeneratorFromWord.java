@@ -1,9 +1,8 @@
 import comm.Const;
-import entity.ClassObj;
-import entity.FieldObj;
-import entity.FileObj;
+import entity.word.ClassObj;
+import entity.word.FieldObj;
+import entity.word.FileObj;
 import parse.impl.ParseHtml;
-import util.FileUtil;
 
 import java.io.*;
 import java.util.List;
@@ -19,6 +18,16 @@ public class JavaClassGeneratorFromWord {
     public static void main(String[] args) throws Exception {
 //        String doc = "C:/Users/MACHENIKE/Desktop/juzi/HX-210802-06 全互融通现金贷对接/生成代码/";
         String doc = "./";
+        generateClass(doc);
+    }
+    /**
+     * 生成代码
+     * @param doc :
+     * @return void
+     * @author: liangruihao
+     * @date: 2021/8/26 13:58
+     */
+    private static void generateClass(String doc) throws Exception{
         System.out.println("正在生成文件，请稍等...");
         int count = 0;//统计文件个数
         StringBuilder builder = new StringBuilder();//用来生成日志以及命令使用方法
@@ -164,7 +173,7 @@ public class JavaClassGeneratorFromWord {
      * @author: liangruihao
      * @date: 2021/5/6 16:40
      */
-    private static void genReqOverrideMethod(BufferedWriter out,List<FieldObj> fields,String responseClass) throws IOException {
+    private static void genReqOverrideMethod(final BufferedWriter out,List<FieldObj> fields,String responseClass) throws IOException {
         out.newLine();
         out.newLine();
 

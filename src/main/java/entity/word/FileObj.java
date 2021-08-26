@@ -1,4 +1,4 @@
-package entity;
+package entity.word;
 
 import java.util.List;
 

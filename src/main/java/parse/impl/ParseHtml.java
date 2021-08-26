@@ -2,9 +2,9 @@ package parse.impl;
 
 import comm.Const;
 import convert.impl.WordToHtml;
-import entity.ClassObj;
-import entity.FieldObj;
-import entity.FileObj;
+import entity.word.ClassObj;
+import entity.word.FieldObj;
+import entity.word.FileObj;
 import factory.DyFactory;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
@@ -26,7 +26,7 @@ public class ParseHtml implements Parser<FileObj> {
     /**
      * 解析html文件
      * @param filePath :
-     * @return java.util.List<entity.FileObj>
+     * @return java.util.List<entity.word.FileObj>
      * @author: liangruihao
      * @date: 2021/5/6 14:07
      */
@@ -153,7 +153,7 @@ public class ParseHtml implements Parser<FileObj> {
      * @param table : table元素
      * @param supperText : 统一模式标签内容
      * @param supperFlag : 统一模式标识
-     * @return java.util.List<entity.FieldObj>
+     * @return java.util.List<entity.word.FieldObj>
      * @author: liangruihao
      * @date: 2021/5/7 18:38
      */
