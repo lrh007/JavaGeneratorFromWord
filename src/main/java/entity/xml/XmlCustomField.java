@@ -23,7 +23,7 @@ public class XmlCustomField extends XmlFieldObj {
     /**
      * 是否在所有类中显示，true 是，false 不是，false的情况下需要配合注解@custom才能起作用
      */
-    private Boolean allClass;
+    private Boolean allClass = true;
 
     public String getFieldName() {
         return fieldName;

@@ -1,7 +1,5 @@
 package entity.xml.abstracts;
 
-import entity.xml.enums.XmlJavaScope;
-
 /**
  * @Description: xml field字段对象
  * @Author: liangruihao
@@ -11,11 +9,11 @@ abstract public class XmlFieldObj extends XmlCommonFileObj{
     /**
      * 是否生成字段setter方法， true 生成，false 不生成
      */
-    private Boolean setter;
+    private Boolean setter = true;
     /**
      * 是否生成字段getter方法，true 生成，false 不生成
      */
-    private Boolean getter;
+    private Boolean getter = true;
 
 
     public Boolean getSetter() {

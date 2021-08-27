@@ -19,7 +19,7 @@ public class XmlCustomMethodParam {
     /**
      * 是否是终态变量，true 是，false不是
      */
-    private Boolean finalVar;
+    private Boolean finalVar = false;
 
     public String getParamName() {
         return paramName;

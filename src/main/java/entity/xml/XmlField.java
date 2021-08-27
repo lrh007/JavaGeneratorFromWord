@@ -12,7 +12,7 @@ public class XmlField extends XmlFieldObj {
     /**
      * 是否显示注释，true 显示，false 不显示
      */
-    private Boolean showDescription;
+    private Boolean showDescription = true;
 
     public Boolean getShowDescription() {
         return showDescription;

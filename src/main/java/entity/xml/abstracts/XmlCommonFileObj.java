@@ -11,7 +11,7 @@ abstract public class XmlCommonFileObj {
     /**
      * java作用域，public、private、protected、default
      */
-    private XmlJavaScope scope;
+    private XmlJavaScope scope = XmlJavaScope.PUBLIC;
     /**
      * java 类型
      */
@@ -19,11 +19,11 @@ abstract public class XmlCommonFileObj {
     /**
      * 是否是静态变量， true 是，false 不是
      */
-    private Boolean staticVar;
+    private Boolean staticVar = false;
     /**
      * 是否是终态变量，true 是，false不是
      */
-    private Boolean finalVar;
+    private Boolean finalVar = false;
 
     public XmlJavaScope getScope() {
         return scope;

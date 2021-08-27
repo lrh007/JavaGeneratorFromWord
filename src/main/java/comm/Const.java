@@ -84,4 +84,13 @@ public class Const {
     public static final String CHARSET_UTF_8 = "UTF-8";
 
 
+
+    public static final String xml_class = "class";
+    public static final String xml_directory_path = "directory-path";
+    public static final String xml_field = "field";
+    public static final String xml_custom = "custom";
+    public static final String xml_custom_fields = "custom-fields";
+    public static final String xml_custom_methods = "custom-methods";
+
+
 }

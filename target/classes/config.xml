@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE class SYSTEM "config.dtd">
+<!--<!DOCTYPE class SYSTEM "config.dtd">-->
 <class>
 	<directory-path>C:/users/</directory-path>
 	<field setter="true"
-			getter="true"
-			scope="public"
-			javaType="Integer"
-			showDescription="true">
-	</field>
+		   getter="true"
+		   scope="private"
+		   javaType="Integer"
+		   staticVar="true"
+		   finalVar="true"
+		   showDescription="true"/>
 
 	<custom>
 		<custom-fields>
@@ -15,8 +16,8 @@
 					getter="true"
 					scope="public"
 					javaType="String"
-					static="true"
-					final="true"
+				    staticVar="true"
+				    finalVar="true"
 					allClass="false"
 					>
 				<!--allClass 默认true 表示 所有类中都会生成这个自定义属性，false 表示只在有@customer注解的类中才会生成-->
@@ -28,8 +29,8 @@
 					getter="true"
 					scope="public"
 					javaType="String"
-					static="true"
-					final="true"
+				    staticVar="true"
+				    finalVar="true"
 					>
 				<field-name>CLIENT_PATH</field-name>
 				<field-value>111</field-value>
@@ -39,8 +40,8 @@
 		<custom-methods>
 			<custom-method scope="public"
 					javaType="void"
-					static="true"
-					final="true"
+				    staticVar="true"
+				    finalVar="true"
 					allClass="true"
 					>
 <!--				#默认true 表示 所有类中都会生成这个自定义属性，false 表示只在有@customer注解的类中才会生成-->
@@ -48,8 +49,8 @@
 				<method-annotation>@Override</method-annotation> #方法上面的注解
 				<method-return>LoanApplyResponse.class</method-return> #方法的方绘制
 				<method-params>
-					<method-param javaType="int" final="true">count</method-param>
-					<method-param javaType="String" final="true">name</method-param>
+					<method-param javaType="int" finalVar="true">count</method-param>
+					<method-param javaType="String" finalVar="true">name</method-param>
 				</method-params>
 			</custom-method>
 		</custom-methods>

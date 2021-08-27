@@ -9,6 +9,8 @@
 <!ATTLIST field getter(true|false) "true" (#IMPLIED)>
 <!ATTLIST field scope(public|private|protected|default) "public" (#REQUIRED)>
 <!ATTLIST field javaType (#REQUIRED)>
+<!ATTLIST field staticVar(true|false) "false" (#IMPLIED)>
+<!ATTLIST field finalVar(true|false) "false" (#IMPLIED)>
 <!ATTLIST field showDescription(true|false) "true" (#IMPLIED)>
 <!--子标签custom 下面有 custom-fields 和 custom-methods 两个子标签-->
 <!ELEMENT custom (custom-fields,custom-methods)>
@@ -21,8 +23,8 @@
 <!ATTLIST custom-field getter(true|false) "true" (#IMPLIED)>
 <!ATTLIST custom-field scope(public|private|protected|default) "public" (#REQUIRED)>
 <!ATTLIST custom-field javaType (#REQUIRED)>
-<!ATTLIST custom-field static(true|false) "false" (#IMPLIED)>
-<!ATTLIST custom-field final(true|false) "false" (#IMPLIED)>
+<!ATTLIST custom-field staticVar(true|false) "false" (#IMPLIED)>
+<!ATTLIST custom-field finalVar(true|false) "false" (#IMPLIED)>
 <!ATTLIST custom-field allClass(true|false) "true" (#IMPLIED)>
 <!--子标签 custom-field 下面的三个子标签都设置成只能填写字符串-->
 <!ELEMENT field-name (#PCDATA)>
@@ -42,13 +44,13 @@
 <!--设置method-param 子标签只能填写字符串及属性设置-->
 <!ELEMENT method-param (#PCDATA)>
 <!ATTLIST method-param javaType (#REQUIRED)>
-<!ATTLIST method-param final(true|false) "true" (#IMPLIED)>
+<!ATTLIST method-param finalVar(true|false) "true" (#IMPLIED)>
 
 <!--子标签custom-method 的属性设置-->
 <!ATTLIST custom-method scope(public|private|protected|default) "public" (#REQUIRED)>
 <!ATTLIST custom-method javaType (#REQUIRED)>
-<!ATTLIST custom-method static(true|false) "false" (#IMPLIED)>
-<!ATTLIST custom-method final(true|false) "false" (#IMPLIED)>
+<!ATTLIST custom-method staticVar(true|false) "false" (#IMPLIED)>
+<!ATTLIST custom-method finalVar(true|false) "false" (#IMPLIED)>
 <!ATTLIST custom-method allClass(true|false) "true" (#IMPLIED)>
 
 

@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE class SYSTEM "config.dtd">
+<!--<!DOCTYPE class SYSTEM "config.dtd">-->
 <class>
 	<directory-path>C:/users/</directory-path>
 	<field setter="true"
-			getter="true"
-			scope="public"
-			javaType="Integer"
-		    staticVar="true"
-		    finalVar="true"
-			showDescription="true">
-	</field>
+		   getter="true"
+		   scope="private"
+		   javaType="Integer"
+		   staticVar="true"
+		   finalVar="true"
+		   showDescription="true"/>
 
 	<custom>
 		<custom-fields>
