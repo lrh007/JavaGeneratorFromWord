@@ -1,11 +1,9 @@
 package parse.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import com.sun.xml.internal.bind.v2.runtime.output.NamespaceContextImpl;
 import comm.Const;
-import entity.xml.XmlClass;
-import entity.xml.XmlCustom;
-import entity.xml.XmlCustomField;
-import entity.xml.XmlField;
+import entity.xml.*;
 import entity.xml.enums.XmlJavaScope;
 import org.dom4j.Attribute;
 import org.dom4j.Document;
@@ -35,8 +33,10 @@ public class ParseXml implements Parser<XmlClass> {
      */
     @Override
     public List<XmlClass> parse(String filePath) throws Exception {
+        filePath = filePath +"/config.xml";
         System.out.println("=====================解析xml配置文件开始============================");
-
+        List<XmlClass> xmlClassList = new ArrayList<>();
+        //TODO 目前一个xml中只要一个class标签，后面如果有多个的情况，可以修改此处的逻辑
         XmlClass xmlClass = new XmlClass();
         //创建reader对象
         SAXReader reader = new SAXReader();
@@ -55,12 +55,8 @@ public class ParseXml implements Parser<XmlClass> {
             }else if(Const.xml_field.equals(name)){
                 //解析字段所有属性
                 XmlField xmlField = new XmlField();
-                List<Attribute> attributes = next.attributes();
-                for(Attribute attr : attributes){
-                    //通过反射设置属性值
-                    System.out.println("field标签："+attr.getName()+"="+attr.getValue());
-                    setFields(attr.getName(),attr.getValue(),xmlField);
-                }
+                //获取标签所有属性
+                getAttributes(next,xmlField);
                 xmlClass.setField(xmlField);
                 System.out.println(JSONObject.toJSONString(xmlField));
             }else if(Const.xml_custom.equals(name)){
@@ -78,45 +74,102 @@ public class ParseXml implements Parser<XmlClass> {
                         while (itcusfields.hasNext()){
                             Element cus = (Element) itcusfields.next();
                             XmlCustomField xmlCustomField = new XmlCustomField();
-                            List<Attribute> attributes = cus.attributes();
-                            //通过反射设置属性值
-                            for(Attribute attr : attributes){
-                                System.out.println("custom-field标签："+attr.getName()+"="+attr.getValue());
-                                setFields(attr.getName(),attr.getValue(),xmlCustomField);
-                            }
+                            //获取所有的属性
+                            getAttributes(cus,xmlCustomField);
                             //获取下面所有的子标签
-                            Iterator cusChilds = cus.elementIterator();
-                            while(cusChilds.hasNext()){
-                                Element child = (Element) cusChilds.next();
-                                System.out.println(child.getName()+"="+child.getText());
-                                setFields(child.getName(),child.getText(),xmlCustomField);
-                            }
+                            getChilds(cus,xmlCustomField);
                             xmlCustomFields.add(xmlCustomField);
                             System.out.println(JSONObject.toJSONString(xmlCustomField));
                         }
                         xmlCustom.setCustomFields(xmlCustomFields);
                     }else if(Const.xml_custom_methods.equals(eleName)){
                         //解析自定义方法
-
-
-
-
-
+                        List<XmlCustomMethod> xmlCustomMethods = new ArrayList<>();
+                        Iterator methoditer = ele.elementIterator();
+                        //遍历所有custom-method
+                        while (methoditer.hasNext()){
+                            Element cus = (Element) methoditer.next();
+                            XmlCustomMethod xmlCustomMethod = new XmlCustomMethod();
+                            //获取所有的属性
+                            getAttributes(cus,xmlCustomMethod);
+                            //获取下面所有的子标签
+                            Iterator cusChilds = cus.elementIterator();
+                            while(cusChilds.hasNext()){
+                                Element child = (Element) cusChilds.next();
+                                if(!Const.xml_custom_method_params.equals(child.getName())){
+                                    System.out.println(child.getName()+"标签值："+child.getText());
+                                    setFields(child.getName(),child.getText(),xmlCustomMethod);
+                                }else{
+                                    //获取方法参数
+                                    List<XmlCustomMethodParam> xmlCustomMethodParams = new ArrayList<>();
+                                    Iterator paramit = child.elementIterator();
+                                    while (paramit.hasNext()){
+                                        Element param = (Element) paramit.next();
+                                        XmlCustomMethodParam xmlCustomMethodParam = new XmlCustomMethodParam();
+                                        //获取所有的属性
+                                        getAttributes(param,xmlCustomMethodParam);
+                                        //获取所有标签内容
+                                        System.out.println(param.getName()+"标签值："+param.getText());
+                                        setFields(param.getName(),param.getText(),xmlCustomMethodParam);
+                                        xmlCustomMethodParams.add(xmlCustomMethodParam);
+                                    }
+                                    xmlCustomMethod.setMethodParams(xmlCustomMethodParams);
+                                }
+                            }
+                            xmlCustomMethods.add(xmlCustomMethod);
+                            System.out.println(JSONObject.toJSONString(xmlCustomMethod));
+                        }
+                        xmlCustom.setCustomMethods(xmlCustomMethods);
                     }
                 }
                 xmlClass.setCustom(xmlCustom);
                 System.out.println(JSONObject.toJSONString(xmlClass));
             }
         }
+        xmlClassList.add(xmlClass);
         System.out.println("=====================解析xml配置文件结束============================");
-        return null;
+        return xmlClassList;
+    }
+
+    /**
+     * 获取标签所有属性
+     * @param element : 标签对象
+     * @param obj :  操作对象
+     * @return void
+     * @author: liangruihao
+     * @date: 2021/9/3 16:42
+     */
+    private static <T> void getAttributes(Element element,T obj) throws Exception {
+        List<Attribute> attributes = element.attributes();
+        for(Attribute attr : attributes){
+            //通过反射设置属性值
+            System.out.println(element.getName()+"标签："+attr.getName()+"="+attr.getValue());
+            setFields(attr.getName(),attr.getValue(),obj);
+        }
+    }
+    /**
+     * 获取标签下面所有子标签，适用于子表签只有value的情况，如下：
+     * 《field-name》LOCAL_PATH《/field-name》
+     * @param element :
+     * @param obj :
+     * @return void
+     * @author: liangruihao
+     * @date: 2021/9/3 17:02
+     */
+    private static <T> void getChilds(Element element,T obj) throws Exception {
+        Iterator cusChilds = element.elementIterator();
+        while(cusChilds.hasNext()){
+            Element child = (Element) cusChilds.next();
+            System.out.println(child.getName()+"标签值："+child.getText());
+            setFields(child.getName(),child.getText(),obj);
+        }
     }
 
     /**
      * 通过反射设置类的字段值
      * @param fieldName :字段名称
      * @param fieldValue : 字段值
-     * @param obj :
+     * @param obj : 操作对象
      * @return void
      * @author: liangruihao
      * @date: 2021/8/27 14:48

@@ -53,6 +53,21 @@
 					<method-param javaType="String" finalVar="true">name</method-param>
 				</method-params>
 			</custom-method>
+			<custom-method scope="public"
+						   javaType="void"
+						   staticVar="true"
+						   finalVar="true"
+						   allClass="true"
+			>
+				<!--				#默认true 表示 所有类中都会生成这个自定义属性，false 表示只在有@customer注解的类中才会生成-->
+				<method-name>loanOrder</method-name>
+				<method-annotation>@Override</method-annotation> #方法上面的注解
+				<method-return>LoanApplyResponse.class</method-return> #方法的方绘制
+				<method-params>
+					<method-param javaType="int" finalVar="true">count</method-param>
+					<method-param javaType="String" finalVar="true">name</method-param>
+				</method-params>
+			</custom-method>
 		</custom-methods>
 	</custom>
 

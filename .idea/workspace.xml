@@ -7,23 +7,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed26a728-41a3-4b0a-a85c-1d0d1f6a43a1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/generate/FromGenerate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/generate/impl/FromByWord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/help/Help.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/JavaClassGeneratorFromWord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JavaClassGeneratorFromWord.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/comm/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comm/Const.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/xml/XmlCustomField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/xml/XmlCustomField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/xml/XmlCustomMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/xml/XmlCustomMethod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/xml/XmlCustomMethodParam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/xml/XmlCustomMethodParam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/xml/XmlField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/xml/XmlField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/xml/abstracts/XmlCommonFileObj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/xml/abstracts/XmlCommonFileObj.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/xml/abstracts/XmlFieldObj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/xml/abstracts/XmlFieldObj.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/parse/impl/ParseXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/parse/impl/ParseXml.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.dtd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.dtd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/comm/Const.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/comm/Const.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/config.dtd" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.dtd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/xml/XmlCustom.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/xml/XmlCustom.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/xml/XmlField.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/xml/XmlField.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/xml/XmlJavaScope.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/parse/impl/ParseXml.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/parse/impl/ParseXml.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +43,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -59,6 +55,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/JavaClassGeneratorFromWord.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/parse/impl/ParseXml.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/generate/impl/FromByWord.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/parse/impl/ParseHtml.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/convert/impl/WordToHtml.java" root0="SKIP_INSPECTION" />
   </component>
@@ -114,7 +112,7 @@
       <recent name="E:\IdeaProject\JavaGeneratorFromWord\doc" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ParseXml">
+  <component name="RunManager" selected="Application.JavaClassGeneratorFromWord">
     <configuration name="Const" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="comm.Const" />
       <module name="JavaGeneratorFromWord" />
@@ -176,9 +174,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.JavaClassGeneratorFromWord" />
         <item itemvalue="Application.ParseXml" />
         <item itemvalue="Application.XmlField" />
-        <item itemvalue="Application.JavaClassGeneratorFromWord" />
         <item itemvalue="Application.ParseHtml" />
         <item itemvalue="Application.Const" />
       </list>
@@ -203,10 +201,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1630031918235">
+    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1630661670209">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1630031918235" />
+    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1630661670209" />
     <state x="520" y="195" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1629946908201">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -231,22 +229,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="202" height="209" key="Git.Branch.Popup/0.0.1536.824@0.0.1536.824" timestamp="1629957214814" />
-    <state width="1493" height="198" key="GridCell.Tab.0.bottom" timestamp="1630056801532">
+    <state width="1493" height="243" key="GridCell.Tab.0.bottom" timestamp="1630664174454">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="198" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1630056801532" />
-    <state width="1493" height="198" key="GridCell.Tab.0.center" timestamp="1630056801531">
+    <state width="1493" height="243" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1630664174454" />
+    <state width="1493" height="243" key="GridCell.Tab.0.center" timestamp="1630664174453">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="198" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1630056801531" />
-    <state width="1493" height="198" key="GridCell.Tab.0.left" timestamp="1630056801531">
+    <state width="1493" height="243" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1630664174453" />
+    <state width="1493" height="243" key="GridCell.Tab.0.left" timestamp="1630664174453">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="198" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1630056801531" />
-    <state width="1493" height="198" key="GridCell.Tab.0.right" timestamp="1630056801531">
+    <state width="1493" height="243" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1630664174453" />
+    <state width="1493" height="243" key="GridCell.Tab.0.right" timestamp="1630664174453">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="198" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1630056801531" />
+    <state width="1493" height="243" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1630664174453" />
     <state width="1493" height="232" key="GridCell.Tab.1.bottom" timestamp="1629975300462">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
