@@ -134,7 +134,12 @@ public class ParseHtml implements Parser<FileObj> {
                             className = className.substring(0,idx);
                         }
                     }
-                    ClassObj cls = new ClassObj(className,classDesc,reqClass,responseClass);
+                    //判断是否存在自定义标签，是否需要自定义属性和方法
+                    boolean needCustom = false;
+                    if(pText.contains(Const.CUSTOM)){
+                        needCustom = true;
+                    }
+                    ClassObj cls = new ClassObj(className,classDesc,reqClass,responseClass,needCustom);
                     //获取p标签后面第一个table，用来解析
                     Element table = p.nextElementSiblings().select(Const.HTML_TABLE).first();
                     List<FieldObj> fields = parseTable(table,supperText,supperFlag);

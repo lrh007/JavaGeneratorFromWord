@@ -31,6 +31,10 @@ public class Const {
      * 超级模式标签，在文件内容统一的情况下使用
      */
     public static final String SUPPER_MODE = "@SUPPER";
+    /**
+     * 自定义注解
+     */
+    public static final String CUSTOM = "@custom";
 
 
     public static final String HTML_BODY = "body";

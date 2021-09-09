@@ -1,5 +1,7 @@
 package generate;
 
+import entity.xml.XmlClass;
+
 /**
  * @Description:
  * @Author: liangruihao
@@ -9,5 +11,5 @@ public interface FromGenerate {
     /**
      * 生成class
      */
-    void generateClass(String path) throws Exception;
+    void generateClass(XmlClass xmlClass) throws Exception;
 }

@@ -31,6 +31,11 @@ public class ClassObj {
      * 实现类
      */
     private String responseClass;
+    /**
+     *  是否需要自定义属性方法等，true 需要，false 不需要
+     */
+    private Boolean needCustom;
+
 
     public ClassObj() {
     }
@@ -51,6 +56,13 @@ public class ClassObj {
         this.classDesc = classDesc;
         this.reqClass = reqClass;
         this.responseClass = responseClass;
+    }
+    public ClassObj(String className, String classDesc, boolean reqClass, String responseClass,boolean needCustom) {
+        this.className = className;
+        this.classDesc = classDesc;
+        this.reqClass = reqClass;
+        this.responseClass = responseClass;
+        this.needCustom = needCustom;
     }
 
     public String getClassName() {
@@ -91,5 +103,13 @@ public class ClassObj {
 
     public void setResponseClass(String responseClass) {
         this.responseClass = responseClass;
+    }
+
+    public Boolean getNeedCustom() {
+        return needCustom;
+    }
+
+    public void setNeedCustom(Boolean needCustom) {
+        this.needCustom = needCustom;
     }
 }

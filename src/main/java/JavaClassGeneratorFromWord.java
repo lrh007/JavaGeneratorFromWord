@@ -23,15 +23,14 @@ public class JavaClassGeneratorFromWord {
     public static void main(String[] args) throws Exception {
         String doc = "C:/Users/MACHENIKE/Desktop/cp项目实体类代码生成工具/";
 //        String doc = "./";
+        //TODO 这里判断是否存在xml配置文件，不存在就在当前目录下生成此配置文件
 
         //加载xml配置文件
         Parser parse = new ParseXml();
         List<XmlClass> xmlClassList = parse.parse(doc);
-        for (XmlClass xmlClass : xmlClassList){
-            //TODO 这里后面可以使用工厂模式代替
-            FromGenerate generate = new FromByWord();
-            generate.generateClass(xmlClass.getDirectoryPath());
-        }
+        //TODO 这里后面可以使用工厂模式代替
+        FromGenerate generate = new FromByWord();
+        generate.generateClass(xmlClassList.get(0)); //xml中只会返回一个xmlClass对象
 
     }
 
