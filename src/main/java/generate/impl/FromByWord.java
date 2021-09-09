@@ -74,7 +74,6 @@ public class FromByWord implements FromGenerate {
 //                    }
                     //存在@custom标签则生成自定义字段
                     generateCustomFields(out,classObj.getNeedCustom(),xmlClass);
-
                     //生成属性字段
                     if(fields != null && fields.size() > 0){
                         for (FieldObj field : fields){
@@ -110,6 +109,9 @@ public class FromByWord implements FromGenerate {
                             //生成getter 和 setter方法
                             getterAndSetter(out,field.getFieldName(),field.getFieldType(),xmlClass.getField().getGetter(),xmlClass.getField().getSetter());
                         }
+
+                        //生成自定义属性的setter.getter方法
+                        generateCustomFieldsSetterAndGetter(out,classObj.getNeedCustom(),xmlClass);
                     }else{
                         //没有属性字段的情况下也要生成override方法
                         //判断是否是请求类
@@ -160,20 +162,45 @@ public class FromByWord implements FromGenerate {
                 }
                 builder.append("\t").append(field.getScope().getScope()).append(" ");
                 if(field.getStaticVar()){
-                    builder.append(" static ");
+                    builder.append("static ");
                 }
                 if(field.getFinalVar()){
-                    builder.append(" final ");
+                    builder.append("final ");
                 }
                 builder.append(field.getJavaType());
                 builder.append(" ").append(field.getFieldName()).append(" = ").append(field.getFieldValue()).append(";");
                 out.newLine();
                 out.write(builder.toString());
-                //生成自定义setter,getter方法
-//                getterAndSetter(out,field.getFieldName(),field.getJavaType(),field.getGetter(),field.getSetter());
             }
         }
+    }
 
+    /**
+     *  生成自定属性的setter,getter方法
+     * @param out :
+     * @param needCustom :
+     * @param xmlClass :
+     * @return void
+     * @author: liangruihao
+     * @date: 2021/9/9 19:54
+     */
+    private static void generateCustomFieldsSetterAndGetter(BufferedWriter out,boolean needCustom,XmlClass xmlClass) throws Exception{
+        List<XmlCustomField> customFields = xmlClass.getCustom().getCustomFields();
+        for (XmlCustomField field :customFields){
+            boolean b = false;
+            //判断是否存在@custom标签
+            if(needCustom){
+                b = true;
+            }else{
+                //判断是否是所有类中都存在
+                if(field.getAllClass()){
+                    b = true;
+                }
+            }
+            if(b){
+                getterAndSetter(out,field.getFieldName(),field.getJavaType(),field.getGetter(),field.getSetter());
+            }
+        }
     }
 
     /**
