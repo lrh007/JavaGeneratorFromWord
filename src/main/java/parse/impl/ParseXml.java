@@ -40,6 +40,7 @@ public class ParseXml implements Parser<XmlClass> {
         XmlClass xmlClass = new XmlClass();
         //创建reader对象
         SAXReader reader = new SAXReader();
+        reader.setEncoding("UTF-8");
         //加载xml
         Document document = reader.read(new File(filePath));
         //获取根节点

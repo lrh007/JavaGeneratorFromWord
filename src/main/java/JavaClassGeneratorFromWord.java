@@ -26,12 +26,13 @@ public class JavaClassGeneratorFromWord {
 
 
     public static void main(String[] args) throws Exception {
-        String doc = "C:/Users/MACHENIKE/Desktop/cp项目实体类代码生成工具/";
-//        String doc = "./";
+//        String doc = "C:/Users/MACHENIKE/Desktop/cp项目实体类代码生成工具/";
+        String doc = "./";
         //加载配置文件
         File file = loadConfig(doc);
         //加载xml配置文件
         Parser parse = new ParseXml();
+        System.out.println("绝对路径："+file.getAbsoluteFile());
         List<XmlClass> xmlClassList = parse.parse(file.getAbsolutePath());
         //TODO 这里后面可以使用工厂模式代替
         FromGenerate generate = new FromByWord();
@@ -55,11 +56,23 @@ public class JavaClassGeneratorFromWord {
             if(!fileCfg.exists()){
                 fileCfg.mkdirs();
             }
-            URI configUri = Thread.currentThread().getContextClassLoader().getResource(Const.xml_config_name).toURI();
-            URI dtdUri = Thread.currentThread().getContextClassLoader().getResource(Const.xml_dtd_name).toURI();
-            Files.copy(Paths.get(configUri),new FileOutputStream(configPath));
+            InputStream configStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(Const.xml_config_name);
+            InputStream dtdStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(Const.xml_dtd_name);
             String dtdPath = doc + Const.xml_config_path + Const.xml_dtd_name;
-            Files.copy(Paths.get(dtdUri),new FileOutputStream(dtdPath));
+            FileOutputStream dtdOutStream = new FileOutputStream(dtdPath);
+            FileOutputStream configOutStream = new FileOutputStream(configPath);
+            byte[] bytes = new byte[1024];
+            int length = 0;
+            while ((length = configStream.read(bytes)) != -1){
+                configOutStream.write(bytes,0,length);
+                configOutStream.flush();
+            }
+            while ((length = dtdStream.read(bytes)) != -1){
+                dtdOutStream.write(bytes,0,length);
+                dtdOutStream.flush();
+            }
+            dtdOutStream.close();
+            configOutStream.close();
         }
         return file;
     }
