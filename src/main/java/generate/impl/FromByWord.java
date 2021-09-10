@@ -226,7 +226,11 @@ public class FromByWord implements FromGenerate {
                     builder.append("final ");
                 }
                 builder.append(field.getJavaType());
-                builder.append(" ").append(field.getFieldName()).append(" = ").append(field.getFieldValue()).append(";");
+                builder.append(" ").append(field.getFieldName());
+                if(field.getFieldValue() != null){
+                    builder.append(" = ").append(field.getFieldValue());
+                }
+                builder.append(";");
                 out.newLine();
                 out.write(builder.toString());
             }

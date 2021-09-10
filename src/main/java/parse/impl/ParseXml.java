@@ -34,7 +34,6 @@ public class ParseXml implements Parser<XmlClass> {
      */
     @Override
     public List<XmlClass> parse(String filePath) throws Exception {
-        filePath = filePath +"/config.xml";
         System.out.println("=====================解析xml配置文件开始============================");
         List<XmlClass> xmlClassList = new ArrayList<>();
         //TODO 目前一个xml中只要一个class标签，后面如果有多个的情况，可以修改此处的逻辑

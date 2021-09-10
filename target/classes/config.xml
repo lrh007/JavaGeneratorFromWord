@@ -1,50 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE class SYSTEM "config.dtd">
+<!--<!DOCTYPE class SYSTEM "config.dtd">-->
 <class>
-	<directory-path>C:/users/</directory-path>
+	<directory-path>C:\Users\MACHENIKE\Desktop\cp项目实体类代码生成工具\</directory-path>
 	<field setter="true"
 		   getter="true"
 		   scope="private"
 		   javaType="Integer"
-		   staticVar="true"
+		   staticVar="false"
 		   finalVar="true"
 		   showDescription="true"/>
 
 	<custom>
 		<custom-fields>
 			<custom-field setter="true"
-					getter="true"
-					scope="public"
-					javaType="String"
-				    staticVar="true"
-				    finalVar="true"
-					allClass="false"
-					>
+						  getter="true"
+						  scope="public"
+						  javaType="String"
+						  staticVar="true"
+						  finalVar="true"
+						  allClass="false"
+			>
 				<!--allClass 默认true 表示 所有类中都会生成这个自定义属性，false 表示只在有@customer注解的类中才会生成-->
-				<field-name>LOCAL_PATH</field-name>
+				<field-name>METHOD_URL</field-name>
 				<field-value>111</field-value>
-				<field-description>本地路径</field-description>
+				<field-description>请求资方url地址</field-description>
 			</custom-field>
 			<custom-field setter="true"
-					getter="true"
-					scope="public"
-					javaType="String"
-				    staticVar="true"
-				    finalVar="true"
-					>
-				<field-name>CLIENT_PATH</field-name>
+						  getter="true"
+						  scope="public"
+						  javaType="String"
+						  staticVar="true"
+						  finalVar="true"
+						  allClass="false"
+			>
+				<field-name>LOCAL_PATH</field-name>
 				<field-value>111</field-value>
-				<field-description>远程路径</field-description>
+				<field-description>本地请求url地址</field-description>
 			</custom-field>
 		</custom-fields>
 		<custom-methods>
 			<custom-method scope="public"
-					javaType="void"
-				    staticVar="true"
-				    finalVar="true"
-					allClass="true"
-					>
-<!--				#默认true 表示 所有类中都会生成这个自定义属性，false 表示只在有@customer注解的类中才会生成-->
+						   javaType="void"
+						   staticVar="true"
+						   finalVar="true"
+						   allClass="true"
+			>
+				<!--默认true 表示 所有类中都会生成这个自定义属性，false 表示只在有@customer注解的类中才会生成-->
 				<method-name>getOrder</method-name>
 				<method-annotations><!--方法上面的注解-->
 					<method-annotation>@Override</method-annotation>
@@ -62,12 +63,12 @@
 						   finalVar="true"
 						   allClass="true"
 			>
-				<!--				#默认true 表示 所有类中都会生成这个自定义属性，false 表示只在有@customer注解的类中才会生成-->
+				<!--默认true 表示 所有类中都会生成这个自定义属性，false 表示只在有@customer注解的类中才会生成-->
 				<method-name>loanOrder</method-name>
 				<method-annotations> <!--方法上面的注解-->
 					<method-annotation>@Override</method-annotation>
 				</method-annotations>
-				<method-return>LoanApplyResponse.class</method-return> <!--方法的方绘制-->
+				<method-return>LoanApplyResponse.class</method-return> <!--方法的返回值-->
 				<method-params>
 					<method-param javaType="int" finalVar="true">count</method-param>
 					<method-param javaType="String" finalVar="true">name</method-param>

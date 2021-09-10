@@ -105,6 +105,12 @@ public class ParseHtml implements Parser<FileObj> {
             if(p.parent().is(Const.HTML_DIV) || p.parent().is(Const.HTML_BODY)){
                 String pText = p.text().trim();
                 if(pText.contains(Const.CLASS) || pText.contains(Const.CLASS_REQ)){
+                    //判断是否存在自定义标签，是否需要自定义属性和方法
+                    boolean needCustom = false;
+                    if(pText.contains(Const.CUSTOM)){
+                        needCustom = true;
+                        pText = pText.replaceAll(Const.CUSTOM,"");
+                    }
                     String str = null;
                     boolean reqClass = false;
                     if(pText.contains(Const.CLASS)){
@@ -134,11 +140,7 @@ public class ParseHtml implements Parser<FileObj> {
                             className = className.substring(0,idx);
                         }
                     }
-                    //判断是否存在自定义标签，是否需要自定义属性和方法
-                    boolean needCustom = false;
-                    if(pText.contains(Const.CUSTOM)){
-                        needCustom = true;
-                    }
+
                     ClassObj cls = new ClassObj(className,classDesc,reqClass,responseClass,needCustom);
                     //获取p标签后面第一个table，用来解析
                     Element table = p.nextElementSiblings().select(Const.HTML_TABLE).first();

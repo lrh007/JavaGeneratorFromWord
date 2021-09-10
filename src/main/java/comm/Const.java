@@ -99,7 +99,12 @@ public class Const {
     public static final String xml_custom_methods = "custom-methods";
     public static final String xml_custom_method_params = "method-params";
     public static final String xml_custom_method_annotations = "method-annotations";
-
+    /**
+     * xml配置文件名称
+     */
+    public static final String xml_config_name = "config.xml";
+    public static final String xml_dtd_name = "config.dtd";
+    public static final String xml_config_path = "config/";
 
 
 }
