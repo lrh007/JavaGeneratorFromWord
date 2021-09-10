@@ -4,8 +4,8 @@ import comm.Const;
 import entity.word.ClassObj;
 import entity.word.FieldObj;
 import entity.word.FileObj;
-import entity.xml.XmlClass;
-import entity.xml.XmlCustomField;
+import entity.xml.*;
+import entity.xml.enums.XmlCustomMethodAnnotation;
 import generate.FromGenerate;
 import help.Help;
 import parse.impl.ParseHtml;
@@ -67,11 +67,6 @@ public class FromByWord implements FromGenerate {
                     className = "public class " + className + interfaceStr + " {";
                     out.write(className);
 
-                    //TODO 这里要解析@custom注解
-                    //判断是否是请求类
-//                    if(classObj.isReqClass()){
-//                        genReqStaticVar(out);
-//                    }
                     //存在@custom标签则生成自定义字段
                     generateCustomFields(out,classObj.getNeedCustom(),xmlClass);
                     //生成属性字段
@@ -120,6 +115,8 @@ public class FromByWord implements FromGenerate {
                             genReqOverrideMethod(out,fields,classObj.getResponseClass());
                         }
                     }
+                    //生成自定义方法
+                    generateCustomeMethods(out,classObj.getNeedCustom(),xmlClass);
                     out.newLine();
                     out.write("}");
                     out.close();
@@ -133,7 +130,68 @@ public class FromByWord implements FromGenerate {
         Help.log(builder.toString(),path);
     }
     /**
-     * 生成自定义的属性字段及setter,getter方法
+     * 生成自定义方法
+     * @param out :
+     * @param needCustom :
+     * @param xmlClass :
+     * @return void
+     * @author: liangruihao
+     * @date: 2021/9/10 9:54
+     */
+    private static void generateCustomeMethods(BufferedWriter out, boolean needCustom, XmlClass xmlClass) throws Exception{
+        List<XmlCustomMethod> customMethods = xmlClass.getCustom().getCustomMethods();
+        for (XmlCustomMethod method : customMethods){
+            boolean b = false;
+            //判断是否存在@custom标签
+            if(needCustom){
+                b = true;
+            }else{
+                //判断是否是所有类中都存在
+                if(method.getAllClass()){
+                    b = true;
+                }
+            }
+            if(b){
+                StringBuilder builder = new StringBuilder();
+                out.newLine();
+                if(method.getMethodAnnotations() != null){
+                    for (XmlCustomMethodAnnotation anno : method.getMethodAnnotations()){
+                        builder.append("\t").append(anno.getMethodAnnotation()).append("\r\n");
+                    }
+                }
+                builder.append("\t").append(method.getScope().getScope()).append(" ");
+                if(method.getStaticVar()){
+                    builder.append("static ");
+                }
+                if(method.getFinalVar()){
+                    builder.append("final ");
+                }
+                builder.append(method.getJavaType());
+                builder.append(" ").append(method.getMethodName()).append("(");
+                //遍历方法参数
+                int index = 0;
+                for(XmlCustomMethodParam param : method.getMethodParams()){
+                    if(param.getFinalVar()){
+                        builder.append("final ");
+                    }
+                    builder.append(param.getJavaType()).append(" ").append(param.getMethodParam());
+                    index ++;
+                    if(index <method.getMethodParams().size()){
+                        builder.append(",");
+                    }
+                }
+                builder.append("){\r\n");
+                if(method.getMethodReturn() != null){
+                    builder.append("\t\treturn ").append(method.getMethodReturn()).append(";");
+                }
+                builder.append("\r\n\t").append("}");
+                out.write(builder.toString());
+            }
+        }
+    }
+
+    /**
+     * 生成自定义的属性字段
      * @param out :
      * @param needCustom :
      * @param xmlClass :
@@ -143,7 +201,7 @@ public class FromByWord implements FromGenerate {
      */
     private static void generateCustomFields(BufferedWriter out,boolean needCustom,XmlClass xmlClass) throws Exception{
         List<XmlCustomField> customFields = xmlClass.getCustom().getCustomFields();
-        for (XmlCustomField field :customFields){
+        for (XmlCustomField field : customFields){
             boolean b = false;
             //判断是否存在@custom标签
             if(needCustom){
@@ -232,23 +290,6 @@ public class FromByWord implements FromGenerate {
 
     }
 
-    /**
-     * 生成请求类的静态变量
-     * @param out :
-     * @return void
-     * @author: liangruihao
-     * @date: 2021/5/6 16:23
-     */
-    private static void genReqStaticVar(BufferedWriter out) throws IOException {
-        out.newLine();
-        out.newLine();
-        String str = "\t/** 请求资方url地址 **/\n"
-                + "\tprivate static final String METHOD_URL =\"\";\n"
-                + "\t/** 本地请求url地址 **/\n"
-                + "\tprivate static final String LOCAL_PATH =\"\";";
-        out.write(str);
-        out.newLine();
-    }
     /**
      * 生成请求类的Overrid方法
      * @param out :

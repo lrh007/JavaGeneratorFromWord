@@ -98,6 +98,7 @@ public class Const {
     public static final String xml_custom_fields = "custom-fields";
     public static final String xml_custom_methods = "custom-methods";
     public static final String xml_custom_method_params = "method-params";
+    public static final String xml_custom_method_annotations = "method-annotations";
 
 
 

@@ -7,14 +7,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed26a728-41a3-4b0a-a85c-1d0d1f6a43a1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/xml/enums/XmlCustomMethodAnnotation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/comm/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comm/Const.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/xml/XmlCustomMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/xml/XmlCustomMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/xml/XmlCustomMethodParam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/xml/XmlCustomMethodParam.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/generate/impl/FromByWord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/generate/impl/FromByWord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/JavaClassGeneratorFromWord.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/JavaClassGeneratorFromWord.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/comm/Const.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/comm/Const.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/word/ClassObj.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/word/ClassObj.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/generate/FromGenerate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/generate/FromGenerate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/generate/impl/FromByWord.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/generate/impl/FromByWord.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/parse/impl/ParseHtml.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/parse/impl/ParseHtml.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/parse/impl/ParseXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/parse/impl/ParseXml.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.dtd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.dtd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/config.dtd" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.dtd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/xml/XmlCustomMethod.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/xml/XmlCustomMethod.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/xml/XmlCustomMethodParam.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/xml/XmlCustomMethodParam.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/generate/impl/FromByWord.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/parse/impl/ParseXml.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/parse/impl/ParseXml.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,10 +207,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="添加读取xml配置方式" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1631183414142">
+    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1631243842187">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1631183414142" />
+    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1631243842187" />
     <state x="520" y="195" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1629946908201">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -212,10 +219,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="524" y="114" key="#xdebugger.evaluate/0.0.1536.824@0.0.1536.824" timestamp="1629944117038" />
-    <state x="334" y="2" key="CommitChangelistDialog2" timestamp="1631188387292">
+    <state x="334" y="2" key="CommitChangelistDialog2" timestamp="1631188710777">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="334" y="2" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1631188387292" />
+    <state x="334" y="2" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1631188710777" />
     <state width="487" height="438" key="DebuggerActiveHint" timestamp="1631176828587">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -228,46 +235,46 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="204" height="211" key="Git.Branch.Popup/0.0.1536.824@0.0.1536.824" timestamp="1631183417050" />
-    <state width="1493" height="247" key="GridCell.Tab.0.bottom" timestamp="1631188698448">
+    <state width="1493" height="332" key="GridCell.Tab.0.bottom" timestamp="1631244917670">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="247" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1631188698448" />
-    <state width="1493" height="247" key="GridCell.Tab.0.center" timestamp="1631188698448">
+    <state width="1493" height="332" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1631244917670" />
+    <state width="1493" height="332" key="GridCell.Tab.0.center" timestamp="1631244917670">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="247" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1631188698448" />
-    <state width="1493" height="247" key="GridCell.Tab.0.left" timestamp="1631188698448">
+    <state width="1493" height="332" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1631244917670" />
+    <state width="1493" height="332" key="GridCell.Tab.0.left" timestamp="1631244917670">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="247" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1631188698448" />
-    <state width="1493" height="247" key="GridCell.Tab.0.right" timestamp="1631188698448">
+    <state width="1493" height="332" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1631244917670" />
+    <state width="1493" height="332" key="GridCell.Tab.0.right" timestamp="1631244917670">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="247" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1631188698448" />
-    <state width="1493" height="232" key="GridCell.Tab.1.bottom" timestamp="1631178635171">
+    <state width="1493" height="332" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1631244917670" />
+    <state width="1493" height="232" key="GridCell.Tab.1.bottom" timestamp="1631188802695">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="232" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1631178635171" />
-    <state width="1493" height="232" key="GridCell.Tab.1.center" timestamp="1631178635171">
+    <state width="1493" height="232" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1631188802695" />
+    <state width="1493" height="232" key="GridCell.Tab.1.center" timestamp="1631188802695">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="232" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1631178635171" />
-    <state width="1493" height="232" key="GridCell.Tab.1.left" timestamp="1631178635171">
+    <state width="1493" height="232" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1631188802695" />
+    <state width="1493" height="232" key="GridCell.Tab.1.left" timestamp="1631188802695">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="232" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1631178635171" />
-    <state width="1493" height="232" key="GridCell.Tab.1.right" timestamp="1631178635171">
+    <state width="1493" height="232" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1631188802695" />
+    <state width="1493" height="232" key="GridCell.Tab.1.right" timestamp="1631188802695">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="232" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1631178635171" />
+    <state width="1493" height="232" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1631188802695" />
     <state x="270" y="0" key="SettingsEditor" timestamp="1629957334597">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="270" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1629957334597" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1631188393367">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1631188716074">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1631188393367" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1631188716074" />
     <state width="775" height="419" key="XDebugger.FullValuePopup" timestamp="1629944442335">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -292,10 +299,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1630031675885" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1631182671595">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1631244376588">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1631182671595" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1631244376588" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.sun.xml.internal.bind.v2.runtime.output.NamespaceContextImpl;
 import comm.Const;
 import entity.xml.*;
+import entity.xml.enums.XmlCustomMethodAnnotation;
 import entity.xml.enums.XmlJavaScope;
 import org.dom4j.Attribute;
 import org.dom4j.Document;
@@ -96,10 +97,7 @@ public class ParseXml implements Parser<XmlClass> {
                             Iterator cusChilds = cus.elementIterator();
                             while(cusChilds.hasNext()){
                                 Element child = (Element) cusChilds.next();
-                                if(!Const.xml_custom_method_params.equals(child.getName())){
-                                    System.out.println(child.getName()+"标签值："+child.getText());
-                                    setFields(child.getName(),child.getText(),xmlCustomMethod);
-                                }else{
+                                if(Const.xml_custom_method_params.equals(child.getName())){
                                     //获取方法参数
                                     List<XmlCustomMethodParam> xmlCustomMethodParams = new ArrayList<>();
                                     Iterator paramit = child.elementIterator();
@@ -114,6 +112,18 @@ public class ParseXml implements Parser<XmlClass> {
                                         xmlCustomMethodParams.add(xmlCustomMethodParam);
                                     }
                                     xmlCustomMethod.setMethodParams(xmlCustomMethodParams);
+                                }else if(Const.xml_custom_method_annotations.equals(child.getName())){
+                                    //获取方法的所有注解
+                                    List<XmlCustomMethodAnnotation> annotationList = new ArrayList<>();
+                                    Iterator iteratorAno = child.elementIterator();
+                                    while (iteratorAno.hasNext()){
+                                        Element anno = (Element) iteratorAno.next();
+                                        annotationList.add(new XmlCustomMethodAnnotation(anno.getTextTrim()));
+                                    }
+                                    xmlCustomMethod.setMethodAnnotations(annotationList);
+                                }else{
+                                    System.out.println(child.getName()+"标签值："+child.getText());
+                                    setFields(child.getName(),child.getText(),xmlCustomMethod);
                                 }
                             }
                             xmlCustomMethods.add(xmlCustomMethod);

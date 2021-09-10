@@ -9,7 +9,7 @@ public class XmlCustomMethodParam {
     /**
      * 参数名称
      */
-    private String paramName;
+    private String methodParam;
 
     /**
      * java 类型
@@ -21,12 +21,12 @@ public class XmlCustomMethodParam {
      */
     private Boolean finalVar = false;
 
-    public String getParamName() {
-        return paramName;
+    public String getMethodParam() {
+        return methodParam;
     }
 
-    public void setParamName(String paramName) {
-        this.paramName = paramName;
+    public void setMethodParam(String methodParam) {
+        this.methodParam = methodParam;
     }
 
     public String getJavaType() {

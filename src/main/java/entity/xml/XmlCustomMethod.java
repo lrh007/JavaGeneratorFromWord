@@ -1,6 +1,7 @@
 package entity.xml;
 
 import entity.xml.abstracts.XmlCommonFileObj;
+import entity.xml.enums.XmlCustomMethodAnnotation;
 
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class XmlCustomMethod extends XmlCommonFileObj {
     /**
      * 方法注解
      */
-    private String methodAnnotation;
+    private List<XmlCustomMethodAnnotation> methodAnnotations;
     /**
      * 方法返回值
      */
@@ -48,12 +49,12 @@ public class XmlCustomMethod extends XmlCommonFileObj {
         this.methodName = methodName;
     }
 
-    public String getMethodAnnotation() {
-        return methodAnnotation;
+    public List<XmlCustomMethodAnnotation> getMethodAnnotations() {
+        return methodAnnotations;
     }
 
-    public void setMethodAnnotation(String methodAnnotation) {
-        this.methodAnnotation = methodAnnotation;
+    public void setMethodAnnotations(List<XmlCustomMethodAnnotation> methodAnnotations) {
+        this.methodAnnotations = methodAnnotations;
     }
 
     public String getMethodReturn() {

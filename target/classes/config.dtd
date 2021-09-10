@@ -33,8 +33,9 @@
 
 <!--子标签 custom-methods 下面有 custom-method 一个子标签-->
 <!ELEMENT custom-methods (custom-method)>
-<!--子标签 custom-method 下面有 method-name,method-annotion,method,method-return,method-params 四个子标签-->
-<!ELEMENT custom-method (method-name,method-annotation,method-return,method-params)>
+<!--子标签 custom-method 下面有 method-name,method-annotion,method,method-returns,method-params 四个子标签-->
+<!ELEMENT custom-method (method-name,method-annotations,method-return,method-params)>
+<!ELEMENT method-annotations (method-annotation)>
 <!--设置子标签下面标签只能填写字符串-->
 <!ELEMENT method-name (#PCDATA)>
 <!ELEMENT method-annotation (#PCDATA)>

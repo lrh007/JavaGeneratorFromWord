@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--<!DOCTYPE class SYSTEM "config.dtd">-->
+<!DOCTYPE class SYSTEM "config.dtd">
 <class>
 	<directory-path>C:/users/</directory-path>
 	<field setter="true"
@@ -46,8 +46,11 @@
 					>
 <!--				#默认true 表示 所有类中都会生成这个自定义属性，false 表示只在有@customer注解的类中才会生成-->
 				<method-name>getOrder</method-name>
-				<method-annotation>@Override</method-annotation> #方法上面的注解
-				<method-return>LoanApplyResponse.class</method-return> #方法的方绘制
+				<method-annotations><!--方法上面的注解-->
+					<method-annotation>@Override</method-annotation>
+					<method-annotation>@JSONField(serialize = false)</method-annotation>
+				</method-annotations>
+				<method-return>LoanApplyResponse.class</method-return> <!--方法的返回值-->
 				<method-params>
 					<method-param javaType="int" finalVar="true">count</method-param>
 					<method-param javaType="String" finalVar="true">name</method-param>
@@ -61,8 +64,10 @@
 			>
 				<!--				#默认true 表示 所有类中都会生成这个自定义属性，false 表示只在有@customer注解的类中才会生成-->
 				<method-name>loanOrder</method-name>
-				<method-annotation>@Override</method-annotation> #方法上面的注解
-				<method-return>LoanApplyResponse.class</method-return> #方法的方绘制
+				<method-annotations> <!--方法上面的注解-->
+					<method-annotation>@Override</method-annotation>
+				</method-annotations>
+				<method-return>LoanApplyResponse.class</method-return> <!--方法的方绘制-->
 				<method-params>
 					<method-param javaType="int" finalVar="true">count</method-param>
 					<method-param javaType="String" finalVar="true">name</method-param>
